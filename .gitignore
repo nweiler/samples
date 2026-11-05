@@ -1,0 +1,25 @@
+# OS metadata
+.DS_Store
+.ds_store
+._*
+__MACOSX/
+_macosx/
+.AppleDouble
+.LSOverride
+.localized
+.apdisk
+.fseventsd/
+.Spotlight-V100/
+.Trashes/
+.TemporaryItems/
+.DocumentRevisions-V100/
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows metadata
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+desktop.ini
+$RECYCLE.BIN/

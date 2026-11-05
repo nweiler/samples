@@ -77,17 +77,29 @@ Before renaming many files or directories:
   an empty blob).
 - `.gitattributes` itself is stored as normal text.
 - Current LFS rules cover all 21 top-level packs.
-- Snapshot after the November 2026 cleanup: 7,904 tracked entries, 7,902 LFS pointers,
+- Snapshot after the November 2026 cleanup: 7,487 tracked entries, 7,483 LFS pointers,
   about 7.15 GB.
+
+## Repository hygiene
+
+- `.gitignore` at the repo root excludes OS metadata. Do not commit these files or
+  remove their patterns without approval:
+  - macOS: `.ds_store`, `._*` (AppleDouble), `_macosx/`, `__macosx/`, `.appleDouble`,
+    `.lsOverride`, `.localized`, `.apdisk`, `.fseventsd/`, `.spotlight-v100/`,
+    `.trashes/`, `.temporaryitems/`, `.documentrevisions-v100/`, `.volumeicon.icns`
+  - Windows: `thumbs.db`, `ehthumbs.db`, `ehthumbs_vista.db`, `desktop.ini`,
+    `$recycle.bin/`
+- If junk appears in the tree, delete it and stage the deletion in the same commit;
+  tracked junk is not ignored by `.gitignore` until it has been removed.
+- `.gitignore` and `.gitattributes` are the only root files exempt from the content
+  naming rules.
 
 ## Known issues and deferred work
 
 Do **not** fix these without explicit approval:
 
 - **Duplicate nested directories** are still present, for example
-  `samples-extra/samples-extra`, `mode-audio-aerosol/__macosx/...`, and repeated
-  `Drum Loops` / `Loop Stems` folders.
-- **macOS junk** such as `_macosx/` directories and `.ds_store` files is still present.
+  `samples-extra/samples-extra` and repeated `Drum Loops` / `Loop Stems` folders.
 - **Punctuation cleanup** is unfinished; roughly 1,700 names still contain characters
   such as `()`, `#`, `'`, `&`, `,`, or `=`.
 - **Duplicate audio content** may exist across and within packs; deduplication has not
@@ -104,6 +116,9 @@ Do **not** fix these without explicit approval:
 
 ## Change log
 
+- **2026-11** — Added `.gitignore` for OS metadata and removed all tracked junk:
+  419 files (72 `.ds_store`, 347 AppleDouble `._*`) and 4 `_macosx/` directories,
+  about 0.59 MB total.
 - **2026-11** — Normalized all file and directory names (7,929 items: 218 directories and
   7,711 files), rebuilt the Git index to fix path casing, converted 7,902 files to LFS,
   and committed as `1aeb390`.
