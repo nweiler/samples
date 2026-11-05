@@ -16,9 +16,26 @@ Applies to files and directories inside the sample packs:
 2. **Whitespace runs become a single underscore** (`_`).
 3. **Underscores adjacent to hyphens are removed**, keeping the hyphen as a separator.
 4. **Repeated underscores collapse to one.**
-5. **Hyphens are preserved** as word separators.
-6. **Other punctuation is currently preserved** — `()`, `#`, `'`, `&`, `,`, `=`, `[]`, etc.
-   Do not strip or replace it without approval.
+5. **Hyphens are preserved as word separators.**
+6. **Only `a-z`, `0-9`, `_`, `-`, and `.` are allowed** in names. Dots are kept for
+   extensions and vendor/version forms (`soundpacks.com`, `ver.1`); do not introduce new
+   dots.
+
+Punctuation is normalized with these rules:
+
+| Character | Rule | Example |
+|---|---|---|
+| `(` `)` `[` `]` | remove the bracket, keep the contents as a separator | `apollo_[long].wav` → `apollo_long.wav` |
+| `#` | `_sharp` | `c#_min` → `c_sharp_min` |
+| `'` and `’` | delete | `don't` → `dont` |
+| `&` | `_and_` | `r&b` → `r_and_b` |
+| `,` | `_` | `laugh,_laugh` → `laugh_laugh` |
+| `+` | `_` | `moogone+subphatty` → `moogone_subphatty` |
+| `=` | `_` | `5x5=55` → `5x5_55` |
+| `!` | delete | `hustle!!!` → `hustle` |
+
+If normalization would collide with an existing name, keep the existing name and append
+`_2`, `_3`, … to the renamed item. Different assets must not be overwritten.
 
 Examples:
 
@@ -95,7 +112,7 @@ Before renaming many files or directories:
 - LFS currently applies to **all files inside each pack directory**, not only audio. This
   matches the original intent, but it means text files and artwork are also stored as LFS
   pointers.
-- Empty files are not converted to pointers (for example `loopcult-future/icon_` remains
+- Empty files are not converted to pointers (for example `loopcult-future/icon` remains
   an empty blob).
 - `.gitattributes` itself is stored as normal text.
 - Current LFS rules cover all 18 top-level packs.
@@ -120,8 +137,6 @@ Before renaming many files or directories:
 
 Do **not** fix these without explicit approval:
 
-- **Punctuation cleanup** is unfinished; roughly 1,700 names still contain characters
-  such as `()`, `#`, `'`, `&`, `,`, or `=`.
 - **Intentional overlaps** remain, for example the free ModeAudio tasters vs the full
   pack. Do not dedupe across packs without approval.
 - LFS currently covers whole pack directories; narrowing it to audio/MIDI extensions is
@@ -136,6 +151,10 @@ Do **not** fix these without explicit approval:
 
 ## Change log
 
+- **2026-11** — Punctuation cleanup: normalized all remaining special characters in
+  1,556 file/directory renames (`()` `[]` `#` `'` `&` `,` `+` `=` `!`). No content
+  changed; the two genuine `don't`/`dont` collisions were resolved with `_2`. File count
+  unchanged at 7,272.
 - **2026-11** — Layout cleanup: moved rhythm-lab's 877 loose wavs into `wav/` and
   collapsed `rhythm-lab.com_breakbeats_collection/`; removed both `loop_stems/` grouping
   levels and the lone `no_sidechain/` wrapper in `cymatics-odyssey-edm`; removed one
