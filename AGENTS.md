@@ -29,10 +29,28 @@ ZERO G - DISC 3/Drums/Kick 1.wav     ->  zero_g-disc_3/drums/kick_1.wav
 ```
 
 Top-level pack directories use short, lowercase, hyphenated names, for example
-`zero-g-sample-pack`, `cymatics-odyssey-edm`, and `samples-and-loops`.
+`zero-g-sample-pack`, `cymatics-odyssey-edm`, and `antidote-dubstep`. When the vendor is
+part of the pack identity, prefix it: `mode-audio-aerosol`,
+`soundpacks-com-magical-chords-samples`.
 
 Repository metadata files are exceptions to the content naming rule: `AGENTS.md`,
 `.gitattributes`, and similar files keep their conventional names.
+
+## Directory layout
+
+- **One top-level directory per pack.** Do not nest a pack inside a same-named vendor
+  folder. A shape like `pack/pack/...` or `pack/vendor_pack/...` is a wrapper and should
+  be collapsed.
+- **Audio is grouped by category** below the pack root, for example `drum_loops/`,
+  `drum_one_shots/`, `midi/`, `fx/`. Category names are reused across packs on purpose;
+  they are not duplicates.
+- **Metadata stays at the pack root**: `license.txt`, artwork, previews, and vendor
+  `.url` files. Do not mix metadata into audio category folders.
+- **Grouping folders are allowed when they add meaning**, for example
+  `synth_loops/drop_loops/loop_stems/<track>_stems/` or `wav/1`, `wav/2`.
+- **No duplicate pack trees.** Each pack has one canonical copy; byte-identical copies
+  must be removed rather than kept side by side.
+- Aim for **maximum path depth of 6** below the repo root.
 
 ## Bulk rename procedure
 
@@ -76,9 +94,9 @@ Before renaming many files or directories:
 - Empty files are not converted to pointers (for example `loopcult-future/icon_` remains
   an empty blob).
 - `.gitattributes` itself is stored as normal text.
-- Current LFS rules cover all 21 top-level packs.
-- Snapshot after the November 2026 cleanup: 7,487 tracked entries, 7,483 LFS pointers,
-  about 7.15 GB.
+- Current LFS rules cover all 18 top-level packs.
+- Snapshot after the November 2026 structural cleanup: 7,273 tracked entries, 7,269 LFS
+  pointers, about 6.86 GB.
 
 ## Repository hygiene
 
@@ -98,12 +116,12 @@ Before renaming many files or directories:
 
 Do **not** fix these without explicit approval:
 
-- **Duplicate nested directories** are still present, for example
-  `samples-extra/samples-extra` and repeated `Drum Loops` / `Loop Stems` folders.
 - **Punctuation cleanup** is unfinished; roughly 1,700 names still contain characters
   such as `()`, `#`, `'`, `&`, `,`, or `=`.
-- **Duplicate audio content** may exist across and within packs; deduplication has not
-  been attempted.
+- **Duplicate audio content** still exists within some packs, and a few intentional
+  overlaps remain (for example the free ModeAudio tasters vs the full packs).
+- **Inconsistent loose-file layout**: `rhythm-lab-breakbeats-collection` keeps 877 wavs
+  at the pack root beside a `rhythm-lab.com_breakbeats_collection/` folder.
 - LFS currently covers whole pack directories; narrowing it to audio/MIDI extensions is
   an open option.
 
@@ -116,6 +134,10 @@ Do **not** fix these without explicit approval:
 
 ## Change log
 
+- **2026-11** — Structural cleanup: collapsed 6 redundant wrapper directories, removed
+  duplicate Antidote packs (`hits`, `samples-and-loops`), merged the two Magical Chords
+  packs into `soundpacks-com-magical-chords-samples`, and removed duplicate Cymatics
+  promo folders. 21 → 18 packs, 7,487 → 7,273 files, 7.15 → 6.86 GB.
 - **2026-11** — Added `.gitignore` for OS metadata and removed all tracked junk:
   419 files (72 `.ds_store`, 347 AppleDouble `._*`) and 4 `_macosx/` directories,
   about 0.59 MB total.

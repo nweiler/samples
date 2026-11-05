@@ -1,8 +1,7 @@
-hits/** filter=lfs diff=lfs merge=lfs -text
 loopcult-future/** filter=lfs diff=lfs merge=lfs -text
 samples-extra/** filter=lfs diff=lfs merge=lfs -text
 mode-audio-aerosol/** filter=lfs diff=lfs merge=lfs -text
-soundpacks-com-magical-chords/** filter=lfs diff=lfs merge=lfs -text
+soundpacks-com-magical-chords-samples/** filter=lfs diff=lfs merge=lfs -text
 zero-g-sample-pack/** filter=lfs diff=lfs merge=lfs -text
 antidote-dubstep/** filter=lfs diff=lfs merge=lfs -text
 cymatics-odyssey-edm/** filter=lfs diff=lfs merge=lfs -text
@@ -15,7 +14,5 @@ moonboy-bass/** filter=lfs diff=lfs merge=lfs -text
 nu-wav-baby-audio/** filter=lfs diff=lfs merge=lfs -text
 rhythm-lab-breakbeats-collection/** filter=lfs diff=lfs merge=lfs -text
 deep-space-chord-samples/** filter=lfs diff=lfs merge=lfs -text
-magical-chords-samples/** filter=lfs diff=lfs merge=lfs -text
-samples-and-loops/** filter=lfs diff=lfs merge=lfs -text
 breaks/** filter=lfs diff=lfs merge=lfs -text
 cymatics-chaos/** filter=lfs diff=lfs merge=lfs -text
