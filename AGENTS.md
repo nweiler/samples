@@ -116,7 +116,7 @@ Before renaming many files or directories:
   an empty blob).
 - `.gitattributes` itself is stored as normal text.
 - Current LFS rules cover all 18 top-level packs.
-- Snapshot after the November 2026 structural cleanup: 7,272 tracked entries, 7,268 LFS
+- Snapshot after the November 2026 structural cleanup: 7,271 tracked entries, 7,267 LFS
   pointers, about 6.86 GB.
 
 ## Repository hygiene
@@ -151,6 +151,12 @@ Do **not** fix these without explicit approval:
 
 ## Change log
 
+- **2026-11** — Relocated the 90-file `samples-extra/snare/` set to
+  `zero-g-sample-pack/zero_g-disc_2/hits/snare/` (working-tree move found at commit
+  time). No content changed and no duplicates introduced.
+- **2026-11** — Removed the timestamped duplicate of `sl_troopers-movement.wav` from
+  `samples-extra/break/` (byte-identical to the rhythm-lab original). 7,272 → 7,271
+  files.
 - **2026-11** — Punctuation cleanup: normalized all remaining special characters in
   1,556 file/directory renames (`()` `[]` `#` `'` `&` `,` `+` `=` `!`). No content
   changed; the two genuine `don't`/`dont` collisions were resolved with `_2`. File count
