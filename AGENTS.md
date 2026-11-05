@@ -47,10 +47,14 @@ Repository metadata files are exceptions to the content naming rule: `AGENTS.md`
 - **Metadata stays at the pack root**: `license.txt`, artwork, previews, and vendor
   `.url` files. Do not mix metadata into audio category folders.
 - **Grouping folders are allowed when they add meaning**, for example
-  `synth_loops/drop_loops/loop_stems/<track>_stems/` or `wav/1`, `wav/2`.
+  `synth_loops/drop_loops/<track>_stems/` or `wav/1`, `wav/2`. Do not add a wrapper that
+  holds only one child; fold it into the parent.
 - **No duplicate pack trees.** Each pack has one canonical copy; byte-identical copies
   must be removed rather than kept side by side.
-- Aim for **maximum path depth of 6** below the repo root.
+- **Keep differently-named assets** even when their bytes match (for example alternate
+  MIDI presets, numbered one-shots, or per-context promo files). Only delete true copy
+  artifacts such as timestamped download duplicates.
+- Aim for **maximum path depth of 5** below the repo root.
 
 ## Bulk rename procedure
 
@@ -95,7 +99,7 @@ Before renaming many files or directories:
   an empty blob).
 - `.gitattributes` itself is stored as normal text.
 - Current LFS rules cover all 18 top-level packs.
-- Snapshot after the November 2026 structural cleanup: 7,273 tracked entries, 7,269 LFS
+- Snapshot after the November 2026 structural cleanup: 7,272 tracked entries, 7,268 LFS
   pointers, about 6.86 GB.
 
 ## Repository hygiene
@@ -118,10 +122,8 @@ Do **not** fix these without explicit approval:
 
 - **Punctuation cleanup** is unfinished; roughly 1,700 names still contain characters
   such as `()`, `#`, `'`, `&`, `,`, or `=`.
-- **Duplicate audio content** still exists within some packs, and a few intentional
-  overlaps remain (for example the free ModeAudio tasters vs the full packs).
-- **Inconsistent loose-file layout**: `rhythm-lab-breakbeats-collection` keeps 877 wavs
-  at the pack root beside a `rhythm-lab.com_breakbeats_collection/` folder.
+- **Intentional overlaps** remain, for example the free ModeAudio tasters vs the full
+  pack. Do not dedupe across packs without approval.
 - LFS currently covers whole pack directories; narrowing it to audio/MIDI extensions is
   an open option.
 
@@ -134,6 +136,10 @@ Do **not** fix these without explicit approval:
 
 ## Change log
 
+- **2026-11** — Layout cleanup: moved rhythm-lab's 877 loose wavs into `wav/` and
+  collapsed `rhythm-lab.com_breakbeats_collection/`; removed both `loop_stems/` grouping
+  levels and the lone `no_sidechain/` wrapper in `cymatics-odyssey-edm`; removed one
+  timestamped samples-extra download duplicate. Max depth 6 → 5. 7,273 → 7,272 files.
 - **2026-11** — Structural cleanup: collapsed 6 redundant wrapper directories, removed
   duplicate Antidote packs (`hits`, `samples-and-loops`), merged the two Magical Chords
   packs into `soundpacks-com-magical-chords-samples`, and removed duplicate Cymatics
