@@ -1,7 +1,3 @@
-Synth and Bass sounds from Korg Minilogue.
-Recorded on Akai S1100 than sampled.
-
-Wav format, 24 bit, 44100, mono, 40 Mb.
-
-Produced by Dmitry "Cyberworm" Vasilyev 
-http://www.rhythm-lab.com
+version https://git-lfs.github.com/spec/v1
+oid sha256:f4da7784da6af6e600529ebcab047835d7e867a4145d521f62189de6b0e25331
+size 196
