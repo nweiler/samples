@@ -1,3 +1,6 @@
+# Generated metadata stays LF so `build_strudel_json.py --check` is stable on Windows.
+strudel.json text eol=lf
+
 loopcult-future/** filter=lfs diff=lfs merge=lfs -text
 samples-extra/** filter=lfs diff=lfs merge=lfs -text
 mode-audio-aerosol/** filter=lfs diff=lfs merge=lfs -text

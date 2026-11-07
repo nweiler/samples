@@ -131,7 +131,8 @@ def main() -> int:
             return 1
         with open(OUT, encoding="utf-8") as handle:
             current = handle.read()
-        if current != text:
+        # A Windows checkout may have converted LF to CRLF; content is still current.
+        if current.replace("\r\n", "\n") != text:
             print(f"stale: {OUT}", file=sys.stderr)
             return 1
         print(f"up to date: {OUT} ({len(files)} audio files)")
