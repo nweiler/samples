@@ -51,7 +51,8 @@ part of the pack identity, prefix it: `mode-audio-aerosol`,
 `soundpacks-com-magical-chords-samples`.
 
 Repository metadata files are exceptions to the content naming rule: `AGENTS.md`,
-`.gitattributes`, and similar files keep their conventional names.
+`.gitattributes`, `strudel.json`, `build_strudel_json.py`, and similar files keep their
+conventional names.
 
 ## Directory layout
 
@@ -119,6 +120,56 @@ Before renaming many files or directories:
 - Snapshot after the November 2026 structural cleanup: 7,271 tracked entries, 7,267 LFS
   pointers, about 6.86 GB.
 
+## Strudel sample map
+
+`strudel.json` at the repo root is a generated sample map for
+[Strudel](https://strudel.cc). It is committed as normal text and is **not** covered by
+Git LFS; only the pack directories are.
+
+Load it in a live set with:
+
+```js
+samples('github:nweiler/samples');
+```
+
+`_base` in the map points at `https://media.githubusercontent.com/media/nweiler/samples/main/`,
+not `raw.githubusercontent.com`. Raw GitHub serves the 130-byte LFS pointer files, so audio
+would fail to decode. Do not change `_base` to a raw URL.
+
+Map structure:
+
+- `bank_<flattened-directory>` — one array per directory that contains audio, for example
+  `bank_breaks` or `bank_zero_g_sample_pack_zero_g_disc_3_vocals`. Arrays are in natural
+  sort order, so `n` indexes are stable.
+- One alias per audio file — the shortest path suffix that is globally unique, sanitized
+  to `[a-z0-9_]`, at least three characters, never purely numeric, and never a Strudel
+  built-in name (`bd`, `sd`, `hh`, …). For example `erupt_170` and `cymatics_orchid_hihat_loop_93_bpm`.
+- Only WebAudio-decodable files are included (`.wav`, `.mp3`, and similar). `.rx2`, `.asd`,
+  `.mid`, and artwork are intentionally absent.
+
+Examples:
+
+```js
+s("erupt_170")                    // file alias
+s("bank_breaks:3")                // fourth file in the bank
+s("bank_breaks").n(3)             // same thing
+```
+
+Regenerate the map after adding, renaming, or removing audio, and commit it with the
+change:
+
+```powershell
+python build_strudel_json.py           # writes strudel.json
+python build_strudel_json.py --check   # fails if the map is stale
+```
+
+The generator defaults to the repo root (the script's directory). Browsers may cache the
+map; when testing an update, load the JSON directly with a cache-busting query:
+
+```js
+samples('https://raw.githubusercontent.com/nweiler/samples/main/strudel.json?version=2');
+```
+
 ## Repository hygiene
 
 - `.gitignore` at the repo root excludes OS metadata. Do not commit these files or
@@ -130,8 +181,8 @@ Before renaming many files or directories:
     `$recycle.bin/`
 - If junk appears in the tree, delete it and stage the deletion in the same commit;
   tracked junk is not ignored by `.gitignore` until it has been removed.
-- `.gitignore` and `.gitattributes` are the only root files exempt from the content
-  naming rules.
+- Root metadata files (`.gitignore`, `.gitattributes`, `strudel.json`,
+  `build_strudel_json.py`) are exempt from the content naming rules.
 
 ## Known issues and deferred work
 
@@ -151,6 +202,9 @@ Do **not** fix these without explicit approval:
 
 ## Change log
 
+- **2026-11** — Added the generated Strudel sample map (`strudel.json`) and its generator
+  (`build_strudel_json.py`): 197 directory banks and a short alias for all 6,220 playable
+  audio files, pointed at the GitHub LFS media host.
 - **2026-11** — Relocated the 90-file `samples-extra/snare/` set to
   `zero-g-sample-pack/zero_g-disc_2/hits/snare/` (working-tree move found at commit
   time). No content changed and no duplicates introduced.
