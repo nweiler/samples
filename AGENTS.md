@@ -147,6 +147,10 @@ Map structure:
 - Only WebAudio-decodable files are included (`.wav`, `.mp3`, and similar). `.rx2`, `.asd`,
   `.mid`, and artwork are intentionally absent.
 
+The file is pretty-printed with one entry per line — `_base`, then banks, then file
+aliases — so additions and renames produce readable diffs. Regenerate it rather than
+hand-editing.
+
 Examples:
 
 ```js
@@ -204,7 +208,7 @@ Do **not** fix these without explicit approval:
 
 - **2026-11** — Added the generated Strudel sample map (`strudel.json`) and its generator
   (`build_strudel_json.py`): 197 directory banks and a short alias for all 6,220 playable
-  audio files, pointed at the GitHub LFS media host.
+  audio files, pointed at the GitHub LFS media host and pretty-printed one entry per line.
 - **2026-11** — Relocated the 90-file `samples-extra/snare/` set to
   `zero-g-sample-pack/zero_g-disc_2/hits/snare/` (working-tree move found at commit
   time). No content changed and no duplicates introduced.

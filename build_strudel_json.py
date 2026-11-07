@@ -123,7 +123,7 @@ def main() -> int:
 
     files = collect_audio()
     sample_map = build_map(files)
-    text = json.dumps(sample_map, sort_keys=True, separators=(",", ":"), ensure_ascii=True) + "\n"
+    text = json.dumps(sample_map, indent=2, ensure_ascii=True) + "\n"
 
     if args.check:
         if not os.path.exists(OUT):
