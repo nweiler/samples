@@ -122,9 +122,11 @@ Before renaming many files or directories:
 - Empty files are not converted to pointers (for example `loopcult-future/icon` remains
   an empty blob).
 - `.gitattributes` itself is stored as normal text.
-- Current LFS rules cover all 18 top-level packs.
-- Snapshot after the November 2026 structural cleanup: 7,271 tracked entries, 7,267 LFS
-  pointers, about 6.86 GB.
+- Current LFS rules cover all 23 top-level packs.
+- Snapshot after the November 2026 `vox/` cleanup, LFS backfill, and pack normalisation:
+  7,571 tracked entries, 7,565 LFS pointers, about 8.90 GB. The six non-LFS entries are
+  `.gitattributes`, `.gitignore`, `AGENTS.md`, `build_strudel_json.py`, `strudel.json`,
+  and the empty `loopcult-future/icon`.
 
 ## Strudel sample map
 
@@ -212,10 +214,23 @@ Do **not** fix these without explicit approval:
 
 ## Change log
 
+- **2026-11** — Normalised `focusrite-drum-pack`, `breaks`, `bass`, `foley`, and
+  `bt-vintage-modernized-kicks-volume-1` under the naming rules: 263 files and 14
+  directories renamed (lowercased, spaces to `_`, `#` to `_sharp`, `(1)` suffix dropped,
+  `MOONBOY -` vendor prefix stripped). De-duplicated `breaks/`, which held a
+  byte-identical pre-normalized twin for every messy name: removed the 38 twins, keeping
+  the descriptive names, and dropped the duplicate `foley` download. 7,610 → 7,571
+  tracked entries. Rebuilt the index for the case-only renames and regenerated
+  `strudel.json` (6,556 → 6,517 aliases, banks unchanged at 215).
 - **2026-11** — Cleaned `vox/`: renamed 21 YouTube-style files by dropping the
   `[video-id]` hashes and normalizing punctuation, then split the 52 flat files into
   `music/` (29), `speech/` (11), `percussion/` (7), and `phrases/` (4). Removed
   `locked.wav`, byte-identical to `all.wav`. 52 → 51 files, no content changed.
+- **2026-11** — Extended LFS to the five packs that were missing rules (`bass`,
+  `bt-vintage-modernized-kicks-volume-1`, `focusrite-drum-pack`, `foley`, `vox`),
+  18 → 23 packs, renormalising their existing blobs into pointers. Those five packs had
+  never been mapped, so they also account for the `strudel.json` growth: 197 → 215 banks,
+  6,219 → 6,517 aliases.
 - **2026-11** — Removed one break sample from `breaks/` at the owner's request and
   regenerated `strudel.json`. File count 7,273 → 7,272.
 - **2026-11** — Removed redundant vendor/pack prefixes from 807 files and 35 `_stems`

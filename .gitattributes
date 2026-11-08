@@ -19,3 +19,8 @@ rhythm-lab-breakbeats-collection/** filter=lfs diff=lfs merge=lfs -text
 deep-space-chord-samples/** filter=lfs diff=lfs merge=lfs -text
 breaks/** filter=lfs diff=lfs merge=lfs -text
 cymatics-chaos/** filter=lfs diff=lfs merge=lfs -text
+bass/** filter=lfs diff=lfs merge=lfs -text
+bt-vintage-modernized-kicks-volume-1/** filter=lfs diff=lfs merge=lfs -text
+focusrite-drum-pack/** filter=lfs diff=lfs merge=lfs -text
+foley/** filter=lfs diff=lfs merge=lfs -text
+vox/** filter=lfs diff=lfs merge=lfs -text
