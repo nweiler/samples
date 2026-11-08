@@ -212,6 +212,8 @@ Do **not** fix these without explicit approval:
 
 ## Change log
 
+- **2026-11** — Removed one break sample from `breaks/` at the owner's request and
+  regenerated `strudel.json`. File count 7,273 → 7,272.
 - **2026-11** — Removed redundant vendor/pack prefixes from 807 files and 35 `_stems`
   directories in `antidote-dubstep`, `cymatics-chaos`, `cymatics-odyssey-edm`,
   `cymatics-orchid`, `minilogue`, and `moonboy-bass`; regenerated `strudel.json`. No
