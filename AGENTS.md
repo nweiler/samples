@@ -212,6 +212,10 @@ Do **not** fix these without explicit approval:
 
 ## Change log
 
+- **2026-11** — Cleaned `vox/`: renamed 21 YouTube-style files by dropping the
+  `[video-id]` hashes and normalizing punctuation, then split the 52 flat files into
+  `music/` (29), `speech/` (11), `percussion/` (7), and `phrases/` (4). Removed
+  `locked.wav`, byte-identical to `all.wav`. 52 → 51 files, no content changed.
 - **2026-11** — Removed one break sample from `breaks/` at the owner's request and
   regenerated `strudel.json`. File count 7,273 → 7,272.
 - **2026-11** — Removed redundant vendor/pack prefixes from 807 files and 35 `_stems`
