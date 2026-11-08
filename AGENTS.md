@@ -4,12 +4,14 @@ Guidance for AI agents and contributors working in this repository.
 
 ## Purpose
 
-This repo is a local library of third-party sample packs, organized at the top level by
-sample type (`drums/`, `bass/`, `synths/`, `vocals/`, `fx/`, `instruments/`, `breaks/`,
-`midi/`) with pack provenance and original paths recorded in `provenance.json` and
-per-pack documentation under `licenses/<pack>/`. Audio, MIDI, and pack metadata are
-stored with Git LFS. Keep the tree tidy and consistent, but do not delete or merge
-content without explicit approval.
+This repo is a local library of third-party sample packs, organized at the top level into
+12 flat sample-type directories (`bass/`, `breaks/`, `drum_fills/`, `drum_loops/`,
+`drum_one_shots/`, `fx/`, `instruments/`, `midi/`, `synth_chords/`, `synth_loops/`,
+`synth_one_shots/`, `vocals/`) so every leaf directory name is globally unique (for
+`npx @strudel/sampler` compatibility), with pack provenance and original paths recorded
+in `provenance.json` and per-pack documentation under `licenses/<pack>/`. Audio, MIDI,
+and pack metadata are stored with Git LFS. Keep the tree tidy and consistent, but do not
+delete or merge content without explicit approval.
 
 ## Naming conventions
 
@@ -54,7 +56,7 @@ Examples:
 ```
 Cymatics - Odyssey Open Hihat 4.wav  ->  open_hihat_4.wav
 Antidote Audio -  Clap 6.wav         ->  clap_6.wav
-ZERO G - DISC 3/Drums/Kick 1.wav     ->  drums/one_shots/kick_1__zero-g-d3.wav
+ZERO G - DISC 3/Drums/Kick 1.wav     ->  drum_one_shots/kick_1__zero-g-d3.wav
 ```
 
 Repository metadata files are exceptions to the content naming rule: `AGENTS.md`,
@@ -63,10 +65,11 @@ files keep their conventional names.
 
 ## Directory layout
 
-- **Type-first flat hierarchy (max depth 2 for samples).** Top-level directories are
-  organized by sample category:
-  - `drums/loops/`, `drums/one_shots/`, `drums/fills/`
-  - `synths/loops/`, `synths/one_shots/`, `synths/chords/`
+- **Type-first 1-level flat hierarchy (max depth 1 for samples).** Every sample category is
+  a single top-level directory so leaf folder names are 100% unique (avoiding collisions in
+  tools like `npx @strudel/sampler` that index by leaf folder name):
+  - `drum_loops/`, `drum_one_shots/`, `drum_fills/`
+  - `synth_loops/`, `synth_one_shots/`, `synth_chords/`
   - `bass/`
   - `vocals/`
   - `fx/`
@@ -85,7 +88,8 @@ files keep their conventional names.
 - **Keep differently-named assets** even when their bytes match (for example alternate
   MIDI presets, numbered one-shots, or per-context promo files). Only delete true copy
   artifacts such as timestamped download duplicates.
-- Aim for **maximum path depth of 2** for samples (and 3 for `licenses/<pack>/<file>`).
+- Aim for **maximum path depth of 2** for samples (`<category>/<file>`) and 3 for
+  `licenses/<pack>/<file>`.
 
 ## Bulk rename procedure
 
@@ -121,9 +125,10 @@ Before renaming many files or directories:
 ## Git LFS
 
 - `.gitattributes` at the repo root is authoritative.
-- Patterns use the recursive form `<category>/**` across the 9 top-level content folders
-  (`bass/**`, `breaks/**`, `drums/**`, `fx/**`, `instruments/**`, `licenses/**`,
-  `midi/**`, `synths/**`, `vocals/**`). A bare directory name such as `hits` only matches
+- Patterns use the recursive form `<category>/**` across the 13 top-level content folders
+  (`bass/**`, `breaks/**`, `drum_fills/**`, `drum_loops/**`, `drum_one_shots/**`, `fx/**`,
+  `instruments/**`, `licenses/**`, `midi/**`, `synth_chords/**`, `synth_loops/**`,
+  `synth_one_shots/**`, `vocals/**`). A bare directory name such as `hits` only matches
   the directory path itself and does **not** apply attributes to files inside.
 - LFS applies to **all files inside each category and license directory**, not only audio.
   This means text files and artwork under `licenses/` are also stored as LFS pointers.
@@ -153,9 +158,9 @@ would fail to decode. Do not change `_base` to a raw URL.
 Map structure:
 
 - `bank_<flattened-directory>` — one array per directory that contains audio (11 banks:
-  `bank_bass`, `bank_breaks`, `bank_drums_fills`, `bank_drums_loops`,
-  `bank_drums_one_shots`, `bank_fx`, `bank_instruments`, `bank_synths_chords`,
-  `bank_synths_loops`, `bank_synths_one_shots`, `bank_vocals`). Arrays are in natural sort
+  `bank_bass`, `bank_breaks`, `bank_drum_fills`, `bank_drum_loops`,
+  `bank_drum_one_shots`, `bank_fx`, `bank_instruments`, `bank_synth_chords`,
+  `bank_synth_loops`, `bank_synth_one_shots`, `bank_vocals`). Arrays are in natural sort
   order, so `n` indexes are stable.
 - One alias per audio file — the shortest path suffix that is globally unique, sanitized
   to `[a-z0-9_]`, at least three characters, never purely numeric, and never a Strudel
@@ -223,16 +228,17 @@ Do **not** fix these without explicit approval:
 
 ## Change log
 
-- **2026-11** — Flattened the 23 pack trees into a type-first 2-level hierarchy (`bass/`,
-  `breaks/`, `drums/{fills,loops,one_shots}/`, `fx/`, `instruments/`, `midi/`,
-  `synths/{chords,loops,one_shots}/`, `vocals/`) and consolidated pack documentation
-  under `licenses/<pack>/` (max depth 5 → 2 for samples). Added `provenance.json` at the
-  repo root recording vendor/source/license metadata for all 22 packs and mapping all
-  7,553 content files back to their source pack and original path. Removed the duplicate
-  12-file `bass/` pack (byte-identical to `moonboy-bass`) and the empty
-  `loopcult-future/icon` file. Disambiguated 1,580 colliding basenames with
+- **2026-11** — Flattened the 23 pack trees into a type-first 1-level hierarchy (`bass/`,
+  `breaks/`, `drum_fills/`, `drum_loops/`, `drum_one_shots/`, `fx/`, `instruments/`,
+  `midi/`, `synth_chords/`, `synth_loops/`, `synth_one_shots/`, `vocals/`) so all leaf
+  directory names are globally unique for `npx @strudel/sampler`, and consolidated pack
+  documentation under `licenses/<pack>/` (max depth 5 → 2 for samples). Added
+  `provenance.json` at the repo root recording vendor/source/license metadata for all 22
+  packs and mapping all 7,553 content files back to their source pack and original path.
+  Removed the duplicate 12-file `bass/` pack (byte-identical to `moonboy-bass`) and the
+  empty `loopcult-future/icon` file. Disambiguated 1,580 colliding basenames with
   `__<pack-code>` suffixes while leaving 5,973 filenames unchanged. Updated
-  `.gitattributes` (23 pack rules → 9 category rules) and regenerated `strudel.json`
+  `.gitattributes` (23 pack rules → 13 category rules) and regenerated `strudel.json`
   (215 → 11 directory banks, 6,517 → 6,505 audio files/aliases).
 
 - **2026-11** — Normalised `focusrite-drum-pack`, `breaks`, `bass`, `foley`, and
