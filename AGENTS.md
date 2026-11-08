@@ -20,6 +20,12 @@ Applies to files and directories inside the sample packs:
 6. **Only `a-z`, `0-9`, `_`, `-`, and `.` are allowed** in names. Dots are kept for
    extensions and vendor/version forms (`soundpacks.com`, `ver.1`); do not introduce new
    dots.
+7. **Do not repeat the vendor or pack name in a file or directory name.** The enclosing
+   pack directory already provides that context. Strip redundant prefixes such as
+   `antidote_audio-`, `cymatics-`, `cymatics-odyssey_`, `cymatics-orchid_`, `minilogue-`,
+   or `moonboy-`. Keep names that are otherwise meaningful, for example
+   `antidote_audio-clap_6.wav` → `clap_6.wav` and
+   `cymatics-orchid_808_cyclical_c.wav` → `808_cyclical_c.wav`.
 
 Punctuation is normalized with these rules:
 
@@ -206,6 +212,10 @@ Do **not** fix these without explicit approval:
 
 ## Change log
 
+- **2026-11** — Removed redundant vendor/pack prefixes from 807 files and 35 `_stems`
+  directories in `antidote-dubstep`, `cymatics-chaos`, `cymatics-odyssey-edm`,
+  `cymatics-orchid`, `minilogue`, and `moonboy-bass`; regenerated `strudel.json`. No
+  content changed and file count stayed at 7,273.
 - **2026-11** — Added the generated Strudel sample map (`strudel.json`) and its generator
   (`build_strudel_json.py`): 197 directory banks and a short alias for all 6,220 playable
   audio files, pointed at the GitHub LFS media host and pretty-printed one entry per line.
