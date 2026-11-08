@@ -4,28 +4,33 @@ Guidance for AI agents and contributors working in this repository.
 
 ## Purpose
 
-This repo is a local library of third-party sample packs. Each top-level directory is one
-pack; audio and MIDI content is stored with Git LFS. Keep the tree tidy and consistent, but
-do not delete or merge content without explicit approval.
+This repo is a local library of third-party sample packs, organized at the top level by
+sample type (`drums/`, `bass/`, `synths/`, `vocals/`, `fx/`, `instruments/`, `breaks/`,
+`midi/`) with pack provenance and original paths recorded in `provenance.json` and
+per-pack documentation under `licenses/<pack>/`. Audio, MIDI, and pack metadata are
+stored with Git LFS. Keep the tree tidy and consistent, but do not delete or merge
+content without explicit approval.
 
 ## Naming conventions
 
-Applies to files and directories inside the sample packs:
+Applies to files and directories inside the library:
 
 1. **Lowercase everything**, including extensions.
 2. **Whitespace runs become a single underscore** (`_`).
 3. **Underscores adjacent to hyphens are removed**, keeping the hyphen as a separator.
-4. **Repeated underscores collapse to one.**
+4. **Repeated underscores collapse to one** (except the `__<pack-code>` disambiguation
+   separator described in rule 7).
 5. **Hyphens are preserved as word separators.**
 6. **Only `a-z`, `0-9`, `_`, `-`, and `.` are allowed** in names. Dots are kept for
    extensions and vendor/version forms (`soundpacks.com`, `ver.1`); do not introduce new
    dots.
-7. **Do not repeat the vendor or pack name in a file or directory name.** The enclosing
-   pack directory already provides that context. Strip redundant prefixes such as
-   `antidote_audio-`, `cymatics-`, `cymatics-odyssey_`, `cymatics-orchid_`, `minilogue-`,
-   or `moonboy-`. Keep names that are otherwise meaningful, for example
-   `antidote_audio-clap_6.wav` → `clap_6.wav` and
-   `cymatics-orchid_808_cyclical_c.wav` → `808_cyclical_c.wav`.
+7. **Do not repeat the vendor or pack name in a file name unless disambiguating a
+   collision.** Strip redundant vendor prefixes such as `antidote_audio-`, `cymatics-`,
+   `cymatics-odyssey_`, `cymatics-orchid_`, `minilogue-`, or `moonboy-`. When two files
+   from different packs (or sub-packs/discs) would collide in the same type folder,
+   keep the first name as-is and suffix subsequent colliding files with `__<pack-code>`
+   (for example `kick_1.wav`, `kick_1__zero-g-d2.wav`, `kick_1__zero-g-d3.wav`). Every
+   file's pack identity and original path are tracked in `provenance.json`.
 
 Punctuation is normalized with these rules:
 
@@ -40,45 +45,47 @@ Punctuation is normalized with these rules:
 | `=` | `_` | `5x5=55` → `5x5_55` |
 | `!` | delete | `hustle!!!` → `hustle` |
 
-If normalization would collide with an existing name, keep the existing name and append
-`_2`, `_3`, … to the renamed item. Different assets must not be overwritten.
+If normalization would collide with an existing name within the same pack/code, keep the
+existing name and append `_2`, `_3`, … to the renamed item. Different assets must not be
+overwritten.
 
 Examples:
 
 ```
-Cymatics - Odyssey Open Hihat 4.wav  ->  cymatics-odyssey_open_hihat_4.wav
-Antidote Audio -  Clap 6.wav         ->  antidote_audio-clap_6.wav
-ZERO G - DISC 3/Drums/Kick 1.wav     ->  zero_g-disc_3/drums/kick_1.wav
+Cymatics - Odyssey Open Hihat 4.wav  ->  open_hihat_4.wav
+Antidote Audio -  Clap 6.wav         ->  clap_6.wav
+ZERO G - DISC 3/Drums/Kick 1.wav     ->  drums/one_shots/kick_1__zero-g-d3.wav
 ```
 
-Top-level pack directories use short, lowercase, hyphenated names, for example
-`zero-g-sample-pack`, `cymatics-odyssey-edm`, and `antidote-dubstep`. When the vendor is
-part of the pack identity, prefix it: `mode-audio-aerosol`,
-`soundpacks-com-magical-chords-samples`.
-
 Repository metadata files are exceptions to the content naming rule: `AGENTS.md`,
-`.gitattributes`, `strudel.json`, `build_strudel_json.py`, and similar files keep their
-conventional names.
+`.gitattributes`, `strudel.json`, `provenance.json`, `build_strudel_json.py`, and similar
+files keep their conventional names.
 
 ## Directory layout
 
-- **One top-level directory per pack.** Do not nest a pack inside a same-named vendor
-  folder. A shape like `pack/pack/...` or `pack/vendor_pack/...` is a wrapper and should
-  be collapsed.
-- **Audio is grouped by category** below the pack root, for example `drum_loops/`,
-  `drum_one_shots/`, `midi/`, `fx/`. Category names are reused across packs on purpose;
-  they are not duplicates.
-- **Metadata stays at the pack root**: `license.txt`, artwork, previews, and vendor
-  `.url` files. Do not mix metadata into audio category folders.
-- **Grouping folders are allowed when they add meaning**, for example
-  `synth_loops/drop_loops/<track>_stems/` or `wav/1`, `wav/2`. Do not add a wrapper that
-  holds only one child; fold it into the parent.
-- **No duplicate pack trees.** Each pack has one canonical copy; byte-identical copies
+- **Type-first flat hierarchy (max depth 2 for samples).** Top-level directories are
+  organized by sample category:
+  - `drums/loops/`, `drums/one_shots/`, `drums/fills/`
+  - `synths/loops/`, `synths/one_shots/`, `synths/chords/`
+  - `bass/`
+  - `vocals/`
+  - `fx/`
+  - `instruments/`
+  - `breaks/`
+  - `midi/`
+- **Provenance and licenses**:
+  - `provenance.json` at the repo root records every pack's metadata (`code`, `vendor`,
+    `source`, `license`, `license_files`, `categories`, `sample_count`, `notes`) and maps
+    every file path back to its `pack` and `original_path`.
+  - `licenses/<pack>/` holds all non-sample pack documentation (`license.txt`, `.pdf`,
+    `.rtf`, `.url`, artwork `.jpg`, and `.vst` files). Do not mix metadata into sample
+    category folders.
+- **No duplicate packs.** Each pack has one canonical copy; byte-identical copies
   must be removed rather than kept side by side.
 - **Keep differently-named assets** even when their bytes match (for example alternate
   MIDI presets, numbered one-shots, or per-context promo files). Only delete true copy
   artifacts such as timestamped download duplicates.
-- Aim for **maximum path depth of 5** below the repo root.
+- Aim for **maximum path depth of 2** for samples (and 3 for `licenses/<pack>/<file>`).
 
 ## Bulk rename procedure
 
@@ -114,25 +121,24 @@ Before renaming many files or directories:
 ## Git LFS
 
 - `.gitattributes` at the repo root is authoritative.
-- Patterns use the recursive form `pack-name/**`. A bare directory name such as `hits`
-  only matches the directory path itself and does **not** apply attributes to files inside.
-- LFS currently applies to **all files inside each pack directory**, not only audio. This
-  matches the original intent, but it means text files and artwork are also stored as LFS
-  pointers.
-- Empty files are not converted to pointers (for example `loopcult-future/icon` remains
-  an empty blob).
-- `.gitattributes` itself is stored as normal text.
-- Current LFS rules cover all 23 top-level packs.
-- Snapshot after the November 2026 `vox/` cleanup, LFS backfill, and pack normalisation:
-  7,571 tracked entries, 7,565 LFS pointers, about 8.90 GB. The six non-LFS entries are
-  `.gitattributes`, `.gitignore`, `AGENTS.md`, `build_strudel_json.py`, `strudel.json`,
-  and the empty `loopcult-future/icon`.
+- Patterns use the recursive form `<category>/**` across the 9 top-level content folders
+  (`bass/**`, `breaks/**`, `drums/**`, `fx/**`, `instruments/**`, `licenses/**`,
+  `midi/**`, `synths/**`, `vocals/**`). A bare directory name such as `hits` only matches
+  the directory path itself and does **not** apply attributes to files inside.
+- LFS applies to **all files inside each category and license directory**, not only audio.
+  This means text files and artwork under `licenses/` are also stored as LFS pointers.
+- `.gitattributes`, `.gitignore`, `AGENTS.md`, `build_strudel_json.py`, `strudel.json`,
+  and `provenance.json` are stored as normal text.
+- Snapshot after the November 2026 type-first flattening and `provenance.json` rollout:
+  7,559 tracked entries, 7,553 LFS pointers (across 22 packs), and 6 non-LFS root
+  metadata files (`.gitattributes`, `.gitignore`, `AGENTS.md`, `build_strudel_json.py`,
+  `provenance.json`, `strudel.json`).
 
 ## Strudel sample map
 
 `strudel.json` at the repo root is a generated sample map for
 [Strudel](https://strudel.cc). It is committed as normal text and is **not** covered by
-Git LFS; only the pack directories are.
+Git LFS; only the sample and license directories are.
 
 Load it in a live set with:
 
@@ -146,12 +152,15 @@ would fail to decode. Do not change `_base` to a raw URL.
 
 Map structure:
 
-- `bank_<flattened-directory>` — one array per directory that contains audio, for example
-  `bank_breaks` or `bank_zero_g_sample_pack_zero_g_disc_3_vocals`. Arrays are in natural
-  sort order, so `n` indexes are stable.
+- `bank_<flattened-directory>` — one array per directory that contains audio (11 banks:
+  `bank_bass`, `bank_breaks`, `bank_drums_fills`, `bank_drums_loops`,
+  `bank_drums_one_shots`, `bank_fx`, `bank_instruments`, `bank_synths_chords`,
+  `bank_synths_loops`, `bank_synths_one_shots`, `bank_vocals`). Arrays are in natural sort
+  order, so `n` indexes are stable.
 - One alias per audio file — the shortest path suffix that is globally unique, sanitized
   to `[a-z0-9_]`, at least three characters, never purely numeric, and never a Strudel
-  built-in name (`bd`, `sd`, `hh`, …). For example `erupt_170` and `cymatics_orchid_hihat_loop_93_bpm`.
+  built-in name (`bd`, `sd`, `hh`, …). For example `170_erupt_drumloop_1` and
+  `hihat_loop_93_bpm`.
 - Only WebAudio-decodable files are included (`.wav`, `.mp3`, and similar). `.rx2`, `.asd`,
   `.mid`, and artwork are intentionally absent.
 
@@ -162,7 +171,7 @@ hand-editing.
 Examples:
 
 ```js
-s("erupt_170")                    // file alias
+s("170_erupt_drumloop_1")         // file alias
 s("bank_breaks:3")                // fourth file in the bank
 s("bank_breaks").n(3)             // same thing
 ```
@@ -193,7 +202,7 @@ samples('https://raw.githubusercontent.com/nweiler/samples/main/strudel.json?ver
     `$recycle.bin/`
 - If junk appears in the tree, delete it and stage the deletion in the same commit;
   tracked junk is not ignored by `.gitignore` until it has been removed.
-- Root metadata files (`.gitignore`, `.gitattributes`, `strudel.json`,
+- Root metadata files (`.gitignore`, `.gitattributes`, `strudel.json`, `provenance.json`,
   `build_strudel_json.py`) are exempt from the content naming rules.
 
 ## Known issues and deferred work
@@ -202,7 +211,7 @@ Do **not** fix these without explicit approval:
 
 - **Intentional overlaps** remain, for example the free ModeAudio tasters vs the full
   pack. Do not dedupe across packs without approval.
-- LFS currently covers whole pack directories; narrowing it to audio/MIDI extensions is
+- LFS currently covers whole category directories; narrowing it to audio/MIDI extensions is
   an open option.
 
 ## Future organization spec
@@ -213,6 +222,18 @@ Do **not** fix these without explicit approval:
 > LFS scope, metadata, etc.), document it here so the conventions stay in one place.
 
 ## Change log
+
+- **2026-11** — Flattened the 23 pack trees into a type-first 2-level hierarchy (`bass/`,
+  `breaks/`, `drums/{fills,loops,one_shots}/`, `fx/`, `instruments/`, `midi/`,
+  `synths/{chords,loops,one_shots}/`, `vocals/`) and consolidated pack documentation
+  under `licenses/<pack>/` (max depth 5 → 2 for samples). Added `provenance.json` at the
+  repo root recording vendor/source/license metadata for all 22 packs and mapping all
+  7,553 content files back to their source pack and original path. Removed the duplicate
+  12-file `bass/` pack (byte-identical to `moonboy-bass`) and the empty
+  `loopcult-future/icon` file. Disambiguated 1,580 colliding basenames with
+  `__<pack-code>` suffixes while leaving 5,973 filenames unchanged. Updated
+  `.gitattributes` (23 pack rules → 9 category rules) and regenerated `strudel.json`
+  (215 → 11 directory banks, 6,517 → 6,505 audio files/aliases).
 
 - **2026-11** — Normalised `focusrite-drum-pack`, `breaks`, `bass`, `foley`, and
   `bt-vintage-modernized-kicks-volume-1` under the naming rules: 263 files and 14
