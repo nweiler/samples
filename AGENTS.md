@@ -5,9 +5,9 @@ Guidance for AI agents and contributors working in this repository.
 ## Purpose
 
 This repo is a local library of third-party sample packs, organized at the top level into
-12 flat sample-type directories (`bass/`, `breaks/`, `drum_fills/`, `drum_loops/`,
-`drum_one_shots/`, `fx/`, `instruments/`, `midi/`, `synth_chords/`, `synth_loops/`,
-`synth_one_shots/`, `vocals/`) so every leaf directory name is globally unique (for
+18 flat sample-type directories (`bass/`, `breaks/`, `claps/`, `cymbals/`, `drum_fills/`,
+`drum_loops/`, `fx/`, `hats/`, `instruments/`, `kicks/`, `midi/`, `percussion/`,
+`snares/`, `synth_chords/`, `synth_loops/`, `synth_one_shots/`, `toms/`, `vocals/`) so every leaf directory name is globally unique (for
 `npx @strudel/sampler` compatibility), with pack provenance and original paths recorded
 in `provenance.json` and per-pack documentation under `licenses/<pack>/`. Audio, MIDI,
 and pack metadata are stored with Git LFS. Keep the tree tidy and consistent, but do not
@@ -56,7 +56,7 @@ Examples:
 ```
 Cymatics - Odyssey Open Hihat 4.wav  ->  open_hihat_4.wav
 Antidote Audio -  Clap 6.wav         ->  clap_6.wav
-ZERO G - DISC 3/Drums/Kick 1.wav     ->  drum_one_shots/kick_1__zero-g-d3.wav
+ZERO G - DISC 3/Drums/Kick 1.wav     ->  kicks/kick_1__zero-g-d3.wav
 ```
 
 Repository metadata files are exceptions to the content naming rule: `AGENTS.md`,
@@ -68,14 +68,10 @@ files keep their conventional names.
 - **Type-first 1-level flat hierarchy (max depth 1 for samples).** Every sample category is
   a single top-level directory so leaf folder names are 100% unique (avoiding collisions in
   tools like `npx @strudel/sampler` that index by leaf folder name):
-  - `drum_loops/`, `drum_one_shots/`, `drum_fills/`
-  - `synth_loops/`, `synth_one_shots/`, `synth_chords/`
-  - `bass/`
-  - `vocals/`
-  - `fx/`
-  - `instruments/`
-  - `breaks/`
-  - `midi/`
+  - Drum one-shots: `kicks/`, `snares/`, `hats/`, `claps/`, `cymbals/`, `toms/`, `percussion/`
+  - Drum loops & fills: `drum_loops/`, `drum_fills/`, `breaks/`
+  - Synths: `synth_loops/`, `synth_one_shots/`, `synth_chords/`
+  - Other categories: `bass/`, `vocals/`, `fx/`, `instruments/`, `midi/`
 - **Provenance and licenses**:
   - `provenance.json` at the repo root records every pack's metadata (`code`, `vendor`,
     `source`, `license`, `license_files`, `categories`, `sample_count`, `notes`) and maps
@@ -125,10 +121,11 @@ Before renaming many files or directories:
 ## Git LFS
 
 - `.gitattributes` at the repo root is authoritative.
-- Patterns use the recursive form `<category>/**` across the 13 top-level content folders
-  (`bass/**`, `breaks/**`, `drum_fills/**`, `drum_loops/**`, `drum_one_shots/**`, `fx/**`,
-  `instruments/**`, `licenses/**`, `midi/**`, `synth_chords/**`, `synth_loops/**`,
-  `synth_one_shots/**`, `vocals/**`). A bare directory name such as `hits` only matches
+- Patterns use the recursive form `<category>/**` across the 19 top-level content folders
+  (`bass/**`, `breaks/**`, `claps/**`, `cymbals/**`, `drum_fills/**`, `drum_loops/**`,
+  `fx/**`, `hats/**`, `instruments/**`, `kicks/**`, `licenses/**`, `midi/**`,
+  `percussion/**`, `snares/**`, `synth_chords/**`, `synth_loops/**`, `synth_one_shots/**`,
+  `toms/**`, `vocals/**`). A bare directory name such as `hits` only matches
   the directory path itself and does **not** apply attributes to files inside.
 - LFS applies to **all files inside each category and license directory**, not only audio.
   This means text files and artwork under `licenses/` are also stored as LFS pointers.
@@ -157,10 +154,11 @@ would fail to decode. Do not change `_base` to a raw URL.
 
 Map structure:
 
-- `bank_<flattened-directory>` — one array per directory that contains audio (11 banks:
-  `bank_bass`, `bank_breaks`, `bank_drum_fills`, `bank_drum_loops`,
-  `bank_drum_one_shots`, `bank_fx`, `bank_instruments`, `bank_synth_chords`,
-  `bank_synth_loops`, `bank_synth_one_shots`, `bank_vocals`). Arrays are in natural sort
+- `bank_<flattened-directory>` — one array per directory that contains audio (17 banks:
+  `bank_bass`, `bank_breaks`, `bank_claps`, `bank_cymbals`, `bank_drum_fills`,
+  `bank_drum_loops`, `bank_fx`, `bank_hats`, `bank_instruments`, `bank_kicks`,
+  `bank_percussion`, `bank_snares`, `bank_synth_chords`, `bank_synth_loops`,
+  `bank_synth_one_shots`, `bank_toms`, `bank_vocals`). Arrays are in natural sort
   order, so `n` indexes are stable.
 - One alias per audio file — the shortest path suffix that is globally unique, sanitized
   to `[a-z0-9_]`, at least three characters, never purely numeric, and never a Strudel
@@ -227,6 +225,8 @@ Do **not** fix these without explicit approval:
 > LFS scope, metadata, etc.), document it here so the conventions stay in one place.
 
 ## Change log
+
+- **2026-11** — Split `drum_one_shots/` (1,111 files) into 7 top-level drum categories (`kicks/` 184, `snares/` 360, `hats/` 98, `claps/` 50, `cymbals/` 39, `toms/` 49, `percussion/` 331) so Strudel bank indexing (`bank_kicks`, `bank_snares`, etc.) and `npx @strudel/sampler` target specific drum types. Updated `provenance.json`, `.gitattributes` (13 → 19 category rules), and regenerated `strudel.json` (11 → 17 directory banks, 6,505 audio files/aliases).
 
 - **2026-11** — Flattened the 23 pack trees into a type-first 1-level hierarchy (`bass/`,
   `breaks/`, `drum_fills/`, `drum_loops/`, `drum_one_shots/`, `fx/`, `instruments/`,
