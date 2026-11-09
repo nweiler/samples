@@ -132,7 +132,7 @@ Before renaming many files or directories:
 - `.gitattributes`, `.gitignore`, `AGENTS.md`, `build_strudel_json.py`, `strudel.json`,
   and `provenance.json` are stored as normal text.
 - Snapshot after the November 2026 type-first flattening and `provenance.json` rollout:
-  7,559 tracked entries, 7,553 LFS pointers (across 22 packs), and 6 non-LFS root
+  8,573 tracked entries, 8,567 LFS pointers (across 31 packs), and 6 non-LFS root
   metadata files (`.gitattributes`, `.gitignore`, `AGENTS.md`, `build_strudel_json.py`,
   `provenance.json`, `strudel.json`).
 
@@ -225,6 +225,8 @@ Do **not** fix these without explicit approval:
 > LFS scope, metadata, etc.), document it here so the conventions stay in one place.
 
 ## Change log
+
+- **2026-11** — Normalized and organized 970 newly added samples across 9 new packs (`vhs-chords` 700, `boom-bap-drum-loops` 100, `chiptune` 75, `rdd-dubstep` 30, `whois-rossi` 20, `mc-hip-hop` 16, `bos-riddim-angles` 12, `pml-chill-grooves` 10, `wdh-drums` 7) into their corresponding top-level category directories (`synth_chords/`, `drum_loops/`, `synth_loops/`, `synth_one_shots/`, `bass/`, `fx/`, `kicks/`, `snares/`, `hats/`, `claps/`, `percussion/`, `toms/`, `drum_fills/`, `vocals/`). Relocated 29 `vox` hip-hop drum loops from `drum_loops/` to `breaks/` and removed 30 un-normalized duplicate copies in `breaks/`. Updated `provenance.json` (22 → 31 packs, 8,567 tracked content files) and regenerated `strudel.json` (7,519 audio files/aliases across 17 directory banks).
 
 - **2026-11** — Split `drum_one_shots/` (1,111 files) into 7 top-level drum categories (`kicks/` 184, `snares/` 360, `hats/` 98, `claps/` 50, `cymbals/` 39, `toms/` 49, `percussion/` 331) so Strudel bank indexing (`bank_kicks`, `bank_snares`, etc.) and `npx @strudel/sampler` target specific drum types. Updated `provenance.json`, `.gitattributes` (13 → 19 category rules), and regenerated `strudel.json` (11 → 17 directory banks, 6,505 audio files/aliases).
 
