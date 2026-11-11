@@ -4,6 +4,13 @@
 The map points at GitHub's LFS media host, because raw.githubusercontent.com
 serves Git LFS pointer files instead of audio.
 
+The map contains three kinds of entries:
+    _base             the LFS media base URL
+    bank_<directory>  one array per top-level category directory
+    pack_<pack-code>  one array per pack (from provenance.json), so a single
+                      pack can be browsed with s("pack_<code>")
+    <alias>           one short name per audio file
+
 Usage:
     python build_strudel_json.py            # writes strudel.json
     python build_strudel_json.py --check    # verifies the map is current
@@ -20,6 +27,7 @@ from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "strudel.json")
+PROVENANCE = os.path.join(ROOT, "provenance.json")
 BASE = "https://media.githubusercontent.com/media/nweiler/samples/main/"
 
 # WebAudio can decode these. .rx2 (Reason), .asd (Ableton), .mid and artwork are
@@ -65,7 +73,14 @@ def suffix_candidates(path: str):
         yield "_".join(parts[-depth:])
 
 
-def build_map(files: list[str]) -> dict:
+def load_pack_map() -> dict[str, str]:
+    """Map every tracked content file path to its pack code."""
+    with open(PROVENANCE, encoding="utf-8") as handle:
+        provenance = json.load(handle)
+    return {path: meta["pack"] for path, meta in provenance["files"].items()}
+
+
+def build_map(files: list[str], pack_of: dict[str, str]) -> dict:
     bank_map: dict[str, list[str]] = {}
     by_dir: dict[str, list[str]] = defaultdict(list)
     for path in files:
@@ -80,6 +95,38 @@ def build_map(files: list[str]) -> dict:
             suffix += 1
         bank_map[candidate] = sorted(by_dir[directory], key=natural_key)
 
+    # Per-pack banks let one pack be auditioned at a time, e.g.
+    # s("pack_cymatics_odyssey_edm"). Files are grouped by category
+    # (the path prefix sorts that way) then natural order, so n() indices
+    # are stable.
+    by_pack: dict[str, list[str]] = defaultdict(list)
+    unmapped: list[str] = []
+    for path in files:
+        pack = pack_of.get(path)
+        if pack is None:
+            unmapped.append(path)
+        else:
+            by_pack[pack].append(path)
+    if unmapped:
+        print(
+            f"error: {len(unmapped)} audio files are missing from provenance.json, "
+            "refusing to build incomplete pack banks:",
+            file=sys.stderr,
+        )
+        for path in unmapped[:10]:
+            print(f"  {path}", file=sys.stderr)
+        raise SystemExit(1)
+
+    pack_map: dict[str, list[str]] = {}
+    for pack in sorted(by_pack, key=natural_key):
+        bank = "pack_" + keyify(pack)
+        candidate = bank
+        suffix = 2
+        while candidate in bank_map or candidate in pack_map:
+            candidate = f"{bank}_{suffix}"
+            suffix += 1
+        pack_map[candidate] = sorted(by_pack[pack], key=natural_key)
+
     # Build every possible suffix alias, and count which files each alias can
     # refer to. A file gets the shortest suffix that is unambiguous.
     candidate_paths: dict[str, set[str]] = defaultdict(set)
@@ -88,7 +135,7 @@ def build_map(files: list[str]) -> dict:
             candidate_paths[keyify(candidate)].add(path)
 
     file_map: dict[str, str] = {}
-    used: set[str] = set(bank_map)
+    used: set[str] = set(bank_map) | set(pack_map)
     for path in files:
         chosen = None
         for candidate in suffix_candidates(path):
@@ -112,6 +159,7 @@ def build_map(files: list[str]) -> dict:
 
     result: dict[str, object] = {"_base": BASE}
     result.update(bank_map)
+    result.update(pack_map)
     result.update(file_map)
     return result
 
@@ -122,7 +170,7 @@ def main() -> int:
     args = parser.parse_args()
 
     files = collect_audio()
-    sample_map = build_map(files)
+    sample_map = build_map(files, load_pack_map())
     text = json.dumps(sample_map, indent=2, ensure_ascii=True) + "\n"
 
     if args.check:
@@ -141,10 +189,11 @@ def main() -> int:
     with open(OUT, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(text)
     banks = sum(1 for key in sample_map if key.startswith("bank_"))
-    aliases = len(sample_map) - 1 - banks
+    packs = sum(1 for key in sample_map if key.startswith("pack_"))
+    aliases = len(sample_map) - 1 - banks - packs
     print(
         f"wrote {OUT}: {len(files)} audio files, "
-        f"{banks} directory banks, {aliases} file aliases, "
+        f"{banks} directory banks, {packs} pack banks, {aliases} file aliases, "
         f"{len(text) / 1024:.1f} KiB"
     )
     return 0

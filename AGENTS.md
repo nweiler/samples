@@ -60,8 +60,8 @@ ZERO G - DISC 3/Drums/Kick 1.wav     ->  kicks/kick_1__zero-g-d3.wav
 ```
 
 Repository metadata files are exceptions to the content naming rule: `AGENTS.md`,
-`.gitattributes`, `strudel.json`, `provenance.json`, `build_strudel_json.py`, and similar
-files keep their conventional names.
+`README.md`, `.gitattributes`, `strudel.json`, `provenance.json`, `build_strudel_json.py`,
+`lint_repo.py`, and similar files keep their conventional names.
 
 ## Directory layout
 
@@ -129,12 +129,12 @@ Before renaming many files or directories:
   the directory path itself and does **not** apply attributes to files inside.
 - LFS applies to **all files inside each category and license directory**, not only audio.
   This means text files and artwork under `licenses/` are also stored as LFS pointers.
-- `.gitattributes`, `.gitignore`, `AGENTS.md`, `build_strudel_json.py`, `strudel.json`,
-  and `provenance.json` are stored as normal text.
+- `.gitattributes`, `.gitignore`, `AGENTS.md`, `README.md`, `build_strudel_json.py`,
+  `lint_repo.py`, `strudel.json`, and `provenance.json` are stored as normal text.
 - Snapshot after the November 2026 type-first flattening and `provenance.json` rollout:
-  8,573 tracked entries, 8,567 LFS pointers (across 31 packs), and 6 non-LFS root
-  metadata files (`.gitattributes`, `.gitignore`, `AGENTS.md`, `build_strudel_json.py`,
-  `provenance.json`, `strudel.json`).
+  8,575 tracked entries, 8,567 LFS pointers (across 31 packs), and 8 non-LFS root
+  metadata files (`.gitattributes`, `.gitignore`, `AGENTS.md`, `README.md`,
+  `build_strudel_json.py`, `lint_repo.py`, `provenance.json`, `strudel.json`).
 
 ## Strudel sample map
 
@@ -160,16 +160,21 @@ Map structure:
   `bank_percussion`, `bank_snares`, `bank_synth_chords`, `bank_synth_loops`,
   `bank_synth_one_shots`, `bank_toms`, `bank_vox`). Arrays are in natural sort
   order, so `n` indexes are stable.
+- `pack_<pack-code>` — one array per pack (31 banks, e.g. `pack_cymatics_odyssey_edm`,
+  `pack_rhythm_lab_breakbeats_collection`), built from `provenance.json` so a single
+  pack can be auditioned with `s("pack_...")`. Entries are grouped by category, then
+  natural sort order. Hyphens in pack codes become underscores. The generator refuses
+  to build the map if any audio file is missing from `provenance.json`.
 - One alias per audio file — the shortest path suffix that is globally unique, sanitized
   to `[a-z0-9_]`, at least three characters, never purely numeric, and never a Strudel
   built-in name (`bd`, `sd`, `hh`, …). For example `170_erupt_drumloop_1` and
-  `hihat_loop_93_bpm`.
+  `hihat_loop_93_bpm`. Aliases never start with `bank_` or `pack_`.
 - Only WebAudio-decodable files are included (`.wav`, `.mp3`, and similar). `.rx2`, `.asd`,
   `.mid`, and artwork are intentionally absent.
 
-The file is pretty-printed with one entry per line — `_base`, then banks, then file
-aliases — so additions and renames produce readable diffs. Regenerate it rather than
-hand-editing.
+The file is pretty-printed with one entry per line — `_base`, then directory banks, then
+pack banks, then file aliases — so additions and renames produce readable diffs.
+Regenerate it rather than hand-editing.
 
 Examples:
 
@@ -177,6 +182,8 @@ Examples:
 s("170_erupt_drumloop_1")         // file alias
 s("bank_breaks:3")                // fourth file in the bank
 s("bank_breaks").n(3)             // same thing
+s("pack_cymatics_orchid").n(run(8)) // first 8 files of one pack
+s("bank_kicks").n(irand(192))     // random kick roulette
 ```
 
 Regenerate the map after adding, renaming, or removing audio, and commit it with the
@@ -185,6 +192,7 @@ change:
 ```powershell
 python build_strudel_json.py           # writes strudel.json
 python build_strudel_json.py --check   # fails if the map is stale
+python lint_repo.py                    # checks naming, layout, provenance, map freshness
 ```
 
 The generator defaults to the repo root (the script's directory). Browsers may cache the
@@ -206,7 +214,13 @@ samples('https://raw.githubusercontent.com/nweiler/samples/main/strudel.json?ver
 - If junk appears in the tree, delete it and stage the deletion in the same commit;
   tracked junk is not ignored by `.gitignore` until it has been removed.
 - Root metadata files (`.gitignore`, `.gitattributes`, `strudel.json`, `provenance.json`,
-  `build_strudel_json.py`) are exempt from the content naming rules.
+  `build_strudel_json.py`, `lint_repo.py`, `README.md`, `AGENTS.md`) are exempt from the
+  content naming rules.
+- Run `python lint_repo.py` before committing. It checks top-level layout, naming,
+  depth, OS junk, empty directories, `provenance.json` consistency (bidirectional file
+  map, pack references, categories, sample counts), `strudel.json` invariants and
+  freshness, breaks BPM ordering, `.gitattributes` coverage, and git index health
+  (uppercase paths, untracked files). It must exit 0 before a commit is made.
 
 ## Known issues and deferred work
 
@@ -227,6 +241,8 @@ Do **not** fix these without explicit approval:
 - **`breaks/` leading BPM prefix**: Files in `breaks/` are prefixed with their integer BPM (`<bpm>_<name>.<ext>`, e.g., `122_20th_century-hot_pants.wav`, `94_a_tribe_called_quest-midnight_drum_loop.wav`) and stripped of redundant trailing BPM suffixes so natural sorting orders `breaks/` and `bank_breaks` monotonically by tempo.
 
 ## Change log
+
+- **2026-11** — Added per-pack virtual banks to `strudel.json`: 31 `pack_<pack-code>` banks (hyphens in codes become underscores) built from `provenance.json`, grouped by category then natural order, so one pack can be auditioned with `s("pack_...")`. The generator now refuses to build the map if an audio file is missing from `provenance.json`. Added `lint_repo.py` (layout, naming, depth, junk, provenance consistency, map invariants and freshness, breaks BPM ordering, `.gitattributes` coverage, git index checks) and a human-facing `README.md` with bank/pack tables and audition recipes. Removed the stray empty `fills/` directory. Tracked entries 8,573 → 8,575; non-LFS root metadata files 6 → 8.
 
 - **2026-11** — Renamed top-level sample directory `vocals/` to `vox/` (1,025 files). Updated `.gitattributes` (`vox/**`), `provenance.json` (`vox` category and file paths, plus 3 relocated `roll_snare_*` paths in `snares/`), and regenerated `strudel.json` (`bank_vocals` → `bank_vox`).
 
