@@ -7,7 +7,7 @@ Guidance for AI agents and contributors working in this repository.
 This repo is a local library of third-party sample packs, organized at the top level into
 18 flat sample-type directories (`bass/`, `breaks/`, `claps/`, `cymbals/`, `drum_fills/`,
 `drum_loops/`, `fx/`, `hats/`, `instruments/`, `kicks/`, `midi/`, `percussion/`,
-`snares/`, `synth_chords/`, `synth_loops/`, `synth_one_shots/`, `toms/`, `vocals/`) so every leaf directory name is globally unique (for
+`snares/`, `synth_chords/`, `synth_loops/`, `synth_one_shots/`, `toms/`, `vox/`) so every leaf directory name is globally unique (for
 `npx @strudel/sampler` compatibility), with pack provenance and original paths recorded
 in `provenance.json` and per-pack documentation under `licenses/<pack>/`. Audio, MIDI,
 and pack metadata are stored with Git LFS. Keep the tree tidy and consistent, but do not
@@ -71,7 +71,7 @@ files keep their conventional names.
   - Drum one-shots: `kicks/`, `snares/`, `hats/`, `claps/`, `cymbals/`, `toms/`, `percussion/`
   - Drum loops & fills: `drum_loops/`, `drum_fills/`, `breaks/`
   - Synths: `synth_loops/`, `synth_one_shots/`, `synth_chords/`
-  - Other categories: `bass/`, `vocals/`, `fx/`, `instruments/`, `midi/`
+  - Other categories: `bass/`, `vox/`, `fx/`, `instruments/`, `midi/`
 - **Provenance and licenses**:
   - `provenance.json` at the repo root records every pack's metadata (`code`, `vendor`,
     `source`, `license`, `license_files`, `categories`, `sample_count`, `notes`) and maps
@@ -125,7 +125,7 @@ Before renaming many files or directories:
   (`bass/**`, `breaks/**`, `claps/**`, `cymbals/**`, `drum_fills/**`, `drum_loops/**`,
   `fx/**`, `hats/**`, `instruments/**`, `kicks/**`, `licenses/**`, `midi/**`,
   `percussion/**`, `snares/**`, `synth_chords/**`, `synth_loops/**`, `synth_one_shots/**`,
-  `toms/**`, `vocals/**`). A bare directory name such as `hits` only matches
+  `toms/**`, `vox/**`). A bare directory name such as `hits` only matches
   the directory path itself and does **not** apply attributes to files inside.
 - LFS applies to **all files inside each category and license directory**, not only audio.
   This means text files and artwork under `licenses/` are also stored as LFS pointers.
@@ -158,7 +158,7 @@ Map structure:
   `bank_bass`, `bank_breaks`, `bank_claps`, `bank_cymbals`, `bank_drum_fills`,
   `bank_drum_loops`, `bank_fx`, `bank_hats`, `bank_instruments`, `bank_kicks`,
   `bank_percussion`, `bank_snares`, `bank_synth_chords`, `bank_synth_loops`,
-  `bank_synth_one_shots`, `bank_toms`, `bank_vocals`). Arrays are in natural sort
+  `bank_synth_one_shots`, `bank_toms`, `bank_vox`). Arrays are in natural sort
   order, so `n` indexes are stable.
 - One alias per audio file — the shortest path suffix that is globally unique, sanitized
   to `[a-z0-9_]`, at least three characters, never purely numeric, and never a Strudel
@@ -224,7 +224,13 @@ Do **not** fix these without explicit approval:
 > When a new convention is agreed (folder layout, duplicate handling, punctuation policy,
 > LFS scope, metadata, etc.), document it here so the conventions stay in one place.
 
+- **`breaks/` leading BPM prefix**: Files in `breaks/` are prefixed with their integer BPM (`<bpm>_<name>.<ext>`, e.g., `122_20th_century-hot_pants.wav`, `94_a_tribe_called_quest-midnight_drum_loop.wav`) and stripped of redundant trailing BPM suffixes so natural sorting orders `breaks/` and `bank_breaks` monotonically by tempo.
+
 ## Change log
+
+- **2026-11** — Renamed top-level sample directory `vocals/` to `vox/` (1,025 files). Updated `.gitattributes` (`vox/**`), `provenance.json` (`vox` category and file paths, plus 3 relocated `roll_snare_*` paths in `snares/`), and regenerated `strudel.json` (`bank_vocals` → `bank_vox`).
+
+- **2026-11** — Prefixed 1,925 files in `breaks/` (leaving 20 already-prefixed files unchanged, 1,945 total) with their rounded integer BPM (`56`–`176` BPM, sourced from embedded REX2 `GLOB` headers for `rhythm-lab-breakbeats-collection`, filenames for `breaks` and `vox`, and bar-length/tempo calculation for `samples-extra` and `zero-g-sample-pack`) and stripped redundant trailing BPM suffixes from 48 filenames. Updated `provenance.json` and regenerated `strudel.json` so `bank_breaks` is ordered monotonically by BPM.
 
 - **2026-11** — Normalized and organized 970 newly added samples across 9 new packs (`vhs-chords` 700, `boom-bap-drum-loops` 100, `chiptune` 75, `rdd-dubstep` 30, `whois-rossi` 20, `mc-hip-hop` 16, `bos-riddim-angles` 12, `pml-chill-grooves` 10, `wdh-drums` 7) into their corresponding top-level category directories (`synth_chords/`, `drum_loops/`, `synth_loops/`, `synth_one_shots/`, `bass/`, `fx/`, `kicks/`, `snares/`, `hats/`, `claps/`, `percussion/`, `toms/`, `drum_fills/`, `vocals/`). Relocated 29 `vox` hip-hop drum loops from `drum_loops/` to `breaks/` and removed 30 un-normalized duplicate copies in `breaks/`. Updated `provenance.json` (22 → 31 packs, 8,567 tracked content files) and regenerated `strudel.json` (7,519 audio files/aliases across 17 directory banks).
 

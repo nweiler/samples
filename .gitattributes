@@ -20,4 +20,4 @@ synth_chords/** filter=lfs diff=lfs merge=lfs -text
 synth_loops/** filter=lfs diff=lfs merge=lfs -text
 synth_one_shots/** filter=lfs diff=lfs merge=lfs -text
 toms/** filter=lfs diff=lfs merge=lfs -text
-vocals/** filter=lfs diff=lfs merge=lfs -text
+vox/** filter=lfs diff=lfs merge=lfs -text
