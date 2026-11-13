@@ -29,9 +29,9 @@ PROVENANCE = os.path.join(ROOT, "provenance.json")
 MAP = os.path.join(ROOT, "strudel.json")
 
 CATEGORY_DIRS = [
-    "bass", "breaks", "claps", "cymbals", "drum_fills", "drum_loops", "fx",
-    "hats", "instruments", "kicks", "midi", "percussion", "snares",
-    "synth_chords", "synth_loops", "synth_one_shots", "toms", "vox",
+    "bass", "bd", "breaks", "cp", "cym", "drum_fills", "drum_loops", "fx", "hh",
+    "instruments", "midi", "perc", "sd", "spoken", "synth_chords", "synth_loops",
+    "synth_one_shots", "toms", "vox",
 ]
 LICENSES_DIR = "licenses"
 CONTENT_DIRS = CATEGORY_DIRS + [LICENSES_DIR]
@@ -102,21 +102,20 @@ def check_layout_and_naming() -> list[str]:
             continue
         for dirpath, dirnames, filenames in os.walk(top_path):
             rel_dir = rel(dirpath)
-            in_licenses = rel_dir.startswith(LICENSES_DIR + "/")
             for name in dirnames:
                 path = f"{rel_dir}/{name}"
                 check_name(path, name, is_dir=True, problems=problems)
                 if not os.listdir(os.path.join(dirpath, name)):
                     problems.append(f"empty directory: {path}/")
-                if top in CATEGORY_DIRS:
-                    problems.append(f"subdirectory inside flat category: {path}/")
-                elif path.count("/") > 2:
-                    problems.append(f"licenses path deeper than licenses/<pack>/<file>: {path}/")
+                # Categories allow one level of nesting for BPM buckets and
+                # vendor sub-packs; licenses allow licenses/<pack>/.
+                if path.count("/") > 2:
+                    problems.append(f"directory deeper than <category>/<subfolder>/: {path}/")
             for name in filenames:
                 path = f"{rel_dir}/{name}"
                 check_name(path, name, is_dir=False, problems=problems)
-                if in_licenses and path.count("/") > 2:
-                    problems.append(f"licenses path deeper than licenses/<pack>/<file>: {path}")
+                if path.count("/") > 2:
+                    problems.append(f"file deeper than <category>/<subfolder>/<file>: {path}")
     return problems
 
 
@@ -194,16 +193,33 @@ def check_map() -> tuple[list[str], dict]:
             elif not os.path.exists(os.path.join(ROOT, path)):
                 problems.append(f"{key}: target missing on disk: {path}")
 
-    # Every category directory with audio must have exactly one bank, and
-    # every pack with audio must have exactly one pack bank.
-    expected_banks = {
-        "bank_" + bsj.keyify(d)
-        for d in CATEGORY_DIRS
-        if any(
-            os.path.splitext(f)[1].lower() in bsj.AUDIO_EXTENSIONS
-            for f in os.listdir(os.path.join(ROOT, d))
+    # Every directory that holds audio needs exactly one bank: one per
+    # top-level category, one per nested subfolder, and one for loose audio at
+    # the repository root.
+    def holds_audio(directory: str) -> bool:
+        try:
+            names = os.listdir(directory)
+        except OSError:
+            return False
+        return any(
+            os.path.splitext(n)[1].lower() in bsj.AUDIO_EXTENSIONS for n in names
         )
-    }
+
+    expected_banks: set[str] = set()
+    for top in CATEGORY_DIRS:
+        top_path = os.path.join(ROOT, top)
+        if holds_audio(top_path):
+            expected_banks.add("bank_" + bsj.keyify(top))
+        try:
+            subdirs = sorted(os.listdir(top_path))
+        except OSError:
+            continue
+        for name in subdirs:
+            sub = os.path.join(top_path, name)
+            if os.path.isdir(sub) and holds_audio(sub):
+                expected_banks.add("bank_" + bsj.keyify(f"{top}/{name}"))
+    if holds_audio(ROOT):
+        expected_banks.add("bank_root")
     if banks != expected_banks:
         problems.append(f"bank set mismatch: unexpected={sorted(banks - expected_banks)} missing={sorted(expected_banks - banks)}")
 
@@ -225,8 +241,10 @@ def check_map() -> tuple[list[str], dict]:
 def check_breaks_order(data: dict) -> list[str]:
     problems: list[str] = []
     last: int | None = None
+    # Breaks live in BPM buckets, so the BPM prefix comes after an optional
+    # subfolder: breaks/<bucket>/<bpm>_<name>.wav.
     for entry in data.get("bank_breaks", []):
-        match = re.match(r"^breaks/(\d+)_", entry)
+        match = re.match(r"^breaks/(?:[^/]+/)?(\d+)_", entry)
         if not match:
             problems.append(f"bank_breaks entry without BPM prefix: {entry}")
             continue
@@ -235,17 +253,27 @@ def check_breaks_order(data: dict) -> list[str]:
             problems.append(f"bank_breaks not sorted by BPM: {entry} ({bpm}) after {last}")
         last = bpm
     breaks_dir = os.path.join(ROOT, "breaks")
-    for name in os.listdir(breaks_dir):
-        if not re.match(r"^\d+_", name):
-            problems.append(f"breaks/ file without BPM prefix: breaks/{name}")
+    for dirpath, _dirnames, filenames in os.walk(breaks_dir):
+        for name in filenames:
+            if not re.match(r"^\d+_", name):
+                problems.append(f"breaks file without BPM prefix: {rel(os.path.join(dirpath, name))}")
     return problems
 
 
 def check_gitattributes() -> list[str]:
     with open(os.path.join(ROOT, ".gitattributes"), encoding="utf-8") as handle:
         text = handle.read()
+    problems: list[str] = []
     missing = [d for d in CONTENT_DIRS if f"{d}/**" not in text]
-    return [f".gitattributes is missing the LFS rule for {d}/**" for d in missing]
+    problems += [f".gitattributes is missing the LFS rule for {d}/**" for d in missing]
+    # A rule for a directory that no longer exists silently leaves its files
+    # out of LFS, so flag stale entries too.
+    declared = set(re.findall(r"^([A-Za-z0-9_.-]+)/\*\*\s", text, re.MULTILINE))
+    problems += [
+        f".gitattributes still maps a directory that does not exist: {d}/"
+        for d in sorted(declared - set(CONTENT_DIRS))
+    ]
+    return problems
 
 
 def check_map_freshness() -> list[str]:

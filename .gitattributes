@@ -3,22 +3,33 @@ strudel.json text eol=lf
 strudel.local.json text eol=lf
 provenance.json text eol=lf
 
+# Audio and pack documentation live in Git LFS, one rule per top-level content
+# directory. These names track the type-first layout: bd/sd/hh/cp/cym/perc are
+# Strudel's short drum names, and spoken/ sits beside vox/.
 bass/** filter=lfs diff=lfs merge=lfs -text
+bd/** filter=lfs diff=lfs merge=lfs -text
 breaks/** filter=lfs diff=lfs merge=lfs -text
-claps/** filter=lfs diff=lfs merge=lfs -text
-cymbals/** filter=lfs diff=lfs merge=lfs -text
+cp/** filter=lfs diff=lfs merge=lfs -text
+cym/** filter=lfs diff=lfs merge=lfs -text
 drum_fills/** filter=lfs diff=lfs merge=lfs -text
 drum_loops/** filter=lfs diff=lfs merge=lfs -text
 fx/** filter=lfs diff=lfs merge=lfs -text
-hats/** filter=lfs diff=lfs merge=lfs -text
+hh/** filter=lfs diff=lfs merge=lfs -text
 instruments/** filter=lfs diff=lfs merge=lfs -text
-kicks/** filter=lfs diff=lfs merge=lfs -text
 licenses/** filter=lfs diff=lfs merge=lfs -text
 midi/** filter=lfs diff=lfs merge=lfs -text
-percussion/** filter=lfs diff=lfs merge=lfs -text
-snares/** filter=lfs diff=lfs merge=lfs -text
+perc/** filter=lfs diff=lfs merge=lfs -text
+sd/** filter=lfs diff=lfs merge=lfs -text
+spoken/** filter=lfs diff=lfs merge=lfs -text
 synth_chords/** filter=lfs diff=lfs merge=lfs -text
 synth_loops/** filter=lfs diff=lfs merge=lfs -text
 synth_one_shots/** filter=lfs diff=lfs merge=lfs -text
 toms/** filter=lfs diff=lfs merge=lfs -text
 vox/** filter=lfs diff=lfs merge=lfs -text
+
+# Loose audio at the repository root (the bank_root extras) is part of the
+# library too, so it needs the same treatment.
+/*.wav filter=lfs diff=lfs merge=lfs -text
+/*.mp3 filter=lfs diff=lfs merge=lfs -text
+/*.aif filter=lfs diff=lfs merge=lfs -text
+/*.aiff filter=lfs diff=lfs merge=lfs -text
