@@ -1,8 +1,8 @@
 # neonick-samples
 
 A local library of third-party sample packs, reorganized by sample type for
-use with [Strudel](https://strudel.cc). 31 packs, 8,567 content files, of which
-7,519 are playable audio samples. Audio and pack metadata are tracked with Git
+use with [Strudel](https://strudel.cc). 31 packs, 7,605 content files, of which
+7,463 are playable audio samples. Audio and pack metadata are tracked with Git
 LFS; every file's pack and original path is recorded in `provenance.json`.
 
 ## Play it in Strudel
@@ -18,9 +18,9 @@ Then:
 ```js
 s("bank_breaks:3")                            // 4th break, ordered by tempo
 s("bank_breaks").n(run(16))                   // first 16 breaks, tempo order
-s("bank_kicks").n(irand(192))                 // random kick roulette
+s("bank_bd").n(irand(148))                    // random kick roulette
 s("pack_cymatics_odyssey_edm").n(irand(367))  // random sample from one pack
-s("94_a_tribe_called_quest-midnight_drum_loop") // a specific file by alias
+s("94_a_tribe_called_quest_midnight_drum_loop") // a specific file by alias
 ```
 
 Browsers cache the map. After samples are added or renamed, bust the cache:
@@ -31,20 +31,26 @@ samples('https://raw.githubusercontent.com/nweiler/samples/main/strudel.json?ver
 
 ## Audition locally
 
-Serve the repo from its root (audio loads from disk, no GitHub round trip):
+Serve the repo from its root, then load the local map. `strudel.local.json` is
+identical to `strudel.json` except that `_base` points at the sampler, so the
+same banks, pack banks, and aliases work from disk without a GitHub round trip:
 
 ```sh
-npx @strudel/sampler
+npx @strudel/sampler          # http://localhost:5432
 ```
 
 ```js
-samples('local:');              // same as samples('http://localhost:5432')
-s("breaks").n(run(8))           // banks are plain folder names here
-s("breaks").n(irand(1037))     // random break roulette
+samples('http://localhost:5432/strudel.local.json');
+s("bank_breaks").n(run(8));
+s("bank_bd").n(irand(148));
 ```
 
-Note the difference: the local server names banks after folders (`breaks`),
-while the GitHub map prefixes them (`bank_breaks`) and adds `pack_*` banks.
+Use a different port with `PORT=5555 npx @strudel/sampler`, then regenerate the
+local map with `python build_strudel_json.py --local --port 5555`.
+
+The sampler can also synthesize a map on the fly with `samples('local:')`. That
+map has no pack banks and names banks after leaf folders (`breaks`, `090-099`,
+`zero-g`), so prefer `strudel.local.json` for the full library.
 
 Once a map is loaded, the REPL's `sounds` tab lists every sound name with its
 sample count — searchable, and useful for confirming what a bank contains.
@@ -54,22 +60,29 @@ sample count — searchable, and useful for confirming what a bank contains.
 | Bank | Contents | Files |
 |---|---|---:|
 | `bank_bass` | bass one-shots and loops | 418 |
-| `bank_breaks` | funk/soul/hip-hop drum breaks, ordered by BPM | 1037 |
-| `bank_claps` | claps | 51 |
-| `bank_cymbals` | crashes, rides, splashes | 39 |
+| `bank_bd` | kicks (`bd` = Strudel kick) | 148 |
+| `bank_breaks` | funk/soul/hip-hop drum breaks, ordered by BPM | 1141 |
+| `bank_cp` | claps (`cp`) | 51 |
+| `bank_cym` | crashes, rides, splashes | 39 |
 | `bank_drum_fills` | drum fills | 94 |
-| `bank_drum_loops` | drum loops | 744 |
+| `bank_drum_loops` | drum loops | 637 |
 | `bank_fx` | impacts, risers, textures | 1106 |
-| `bank_hats` | closed/open hats | 101 |
+| `bank_hh` | closed/open hats (`hh`) | 89 |
 | `bank_instruments` | melodic instruments | 241 |
-| `bank_kicks` | kicks | 192 |
-| `bank_percussion` | shakers, congas, misc percussion | 334 |
-| `bank_snares` | snares and rim shots | 370 |
+| `bank_perc` | shakers, congas, misc percussion | 334 |
+| `bank_sd` | snares and rim shots (`sd`) | 370 |
+| `bank_spoken` | spoken word and field recordings | 22 |
 | `bank_synth_chords` | chord samples and stabs | 1019 |
 | `bank_synth_loops` | synth loops | 413 |
 | `bank_synth_one_shots` | synth one-shots | 285 |
 | `bank_toms` | toms | 50 |
-| `bank_vox` | vocals | 1025 |
+| `bank_vox` | vocals | 1004 |
+| `bank_root` | loose format-neutral files at the repo root | 2 |
+
+Top-level banks include everything nested below them. Nested folders also get
+their own banks: the 13 `bank_breaks_<bpm-range>` buckets (for example
+`bank_breaks_090_099`), the `bank_drum_fills_*` buckets, and the
+`bank_<category>_zero_g` subsets.
 
 ## Pack banks
 
@@ -108,13 +121,14 @@ browsed at a time. Entries are grouped by category, then natural order:
 | `pack_vox` | 96 |
 | `pack_wdh_drums` | 7 |
 | `pack_whois_rossi` | 20 |
-| `pack_zero_g_sample_pack` | 3156 |
+| `pack_zero_g_sample_pack` | 3100 |
 
 ## Layout and conventions
 
-- One flat directory per sample type (`kicks/`, `breaks/`, `synth_chords/`, …),
-  so leaf folder names are globally unique. Pack documentation lives under
-  `licenses/<pack>/`.
+- Top-level directories group samples by type (`bd/`, `sd/`, `hh/`, `cp/`,
+  `cym/`, `perc/`, `breaks/`, `synth_chords/`, …). Some categories have nested
+  folders for BPM ranges (`breaks/090-099/`) or vendor sub-packs
+  (`bass/zero-g/`). Pack documentation lives under `licenses/<pack>/`.
 - Names are lowercase `a-z 0-9 _ - .`; breaks are prefixed with their BPM
   (`122_20th_century-hot_pants.wav`) so banks sort by tempo; colliding names
   from different packs get a `__<pack-code>` suffix.
@@ -124,8 +138,9 @@ browsed at a time. Entries are grouped by category, then natural order:
 ## Maintenance
 
 ```sh
-python build_strudel_json.py   # regenerate strudel.json after changes
-python lint_repo.py            # check naming, layout, provenance, map freshness
+python build_strudel_json.py            # regenerate strudel.json (GitHub)
+python build_strudel_json.py --local    # regenerate strudel.local.json
+python lint_repo.py                     # check naming, layout, map freshness
 ```
 
 Full rules and the change log are in `AGENTS.md`.

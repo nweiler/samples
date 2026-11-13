@@ -60,18 +60,20 @@ ZERO G - DISC 3/Drums/Kick 1.wav     ->  kicks/kick_1__zero-g-d3.wav
 ```
 
 Repository metadata files are exceptions to the content naming rule: `AGENTS.md`,
-`README.md`, `.gitattributes`, `strudel.json`, `provenance.json`, `build_strudel_json.py`,
-`lint_repo.py`, and similar files keep their conventional names.
+`README.md`, `.gitattributes`, `strudel.json`, `strudel.local.json`, `provenance.json`,
+`build_strudel_json.py`, `lint_repo.py`, and similar files keep their conventional names.
 
 ## Directory layout
 
-- **Type-first 1-level flat hierarchy (max depth 1 for samples).** Every sample category is
-  a single top-level directory so leaf folder names are 100% unique (avoiding collisions in
-  tools like `npx @strudel/sampler` that index by leaf folder name):
-  - Drum one-shots: `kicks/`, `snares/`, `hats/`, `claps/`, `cymbals/`, `toms/`, `percussion/`
-  - Drum loops & fills: `drum_loops/`, `drum_fills/`, `breaks/`
+- **Type-first hierarchy.** Samples are grouped into top-level type directories; nested
+  subfolders are allowed for tempo buckets and vendor sub-packs:
+  - Drum one-shots: `bd/` (kicks), `sd/` (snares), `hh/` (hats), `cp/` (claps),
+    `cym/` (cymbals), `toms/`, `perc/` (percussion)
+  - Drum loops & fills: `drum_loops/`, `drum_fills/`, `breaks/` (BPM buckets)
   - Synths: `synth_loops/`, `synth_one_shots/`, `synth_chords/`
-  - Other categories: `bass/`, `vox/`, `fx/`, `instruments/`, `midi/`
+  - Other categories: `bass/`, `vox/`, `spoken/`, `fx/`, `instruments/`, `midi/`
+  - Vendor sub-packs live beneath their category, for example `bass/zero-g/` and
+    `sd/zero-g/`.
 - **Provenance and licenses**:
   - `provenance.json` at the repo root records every pack's metadata (`code`, `vendor`,
     `source`, `license`, `license_files`, `categories`, `sample_count`, `notes`) and maps
@@ -130,41 +132,63 @@ Before renaming many files or directories:
 - LFS applies to **all files inside each category and license directory**, not only audio.
   This means text files and artwork under `licenses/` are also stored as LFS pointers.
 - `.gitattributes`, `.gitignore`, `AGENTS.md`, `README.md`, `build_strudel_json.py`,
-  `lint_repo.py`, `strudel.json`, and `provenance.json` are stored as normal text.
+  `lint_repo.py`, `strudel.json`, `strudel.local.json`, and `provenance.json` are stored as
+  normal text.
 - Snapshot after the November 2026 type-first flattening and `provenance.json` rollout:
-  8,575 tracked entries, 8,567 LFS pointers (across 31 packs), and 8 non-LFS root
+  8,575 tracked entries, 8,567 LFS pointers (across 31 packs), and 9 non-LFS root
   metadata files (`.gitattributes`, `.gitignore`, `AGENTS.md`, `README.md`,
-  `build_strudel_json.py`, `lint_repo.py`, `provenance.json`, `strudel.json`).
+  `build_strudel_json.py`, `lint_repo.py`, `provenance.json`, `strudel.json`,
+  `strudel.local.json`).
 
 ## Strudel sample map
 
 `strudel.json` at the repo root is a generated sample map for
 [Strudel](https://strudel.cc). It is committed as normal text and is **not** covered by
-Git LFS; only the sample and license directories are.
+Git LFS; only the sample and license directories are. `strudel.local.json` is the same
+map with a localhost `_base` for auditioning from disk.
 
-Load it in a live set with:
+Load the GitHub map in a live set with:
 
 ```js
 samples('github:nweiler/samples');
 ```
 
-`_base` in the map points at `https://media.githubusercontent.com/media/nweiler/samples/main/`,
-not `raw.githubusercontent.com`. Raw GitHub serves the 130-byte LFS pointer files, so audio
+`_base` in `strudel.json` points at
+`https://media.githubusercontent.com/media/nweiler/samples/main/`, not
+`raw.githubusercontent.com`. Raw GitHub serves the 130-byte LFS pointer files, so audio
 would fail to decode. Do not change `_base` to a raw URL.
+
+Audition locally instead with:
+
+```sh
+npx @strudel/sampler
+```
+
+```js
+samples('http://localhost:5432/strudel.local.json');
+```
+
+`strudel.local.json` has `_base` set to `http://localhost:5432/`, so the sampler serves
+the audio directly from disk. Regenerate it after a port change with
+`python build_strudel_json.py --local --port 5555`.
 
 Map structure:
 
-- `bank_<flattened-directory>` — one array per directory that contains audio (17 banks:
-  `bank_bass`, `bank_breaks`, `bank_claps`, `bank_cymbals`, `bank_drum_fills`,
-  `bank_drum_loops`, `bank_fx`, `bank_hats`, `bank_instruments`, `bank_kicks`,
-  `bank_percussion`, `bank_snares`, `bank_synth_chords`, `bank_synth_loops`,
-  `bank_synth_one_shots`, `bank_toms`, `bank_vox`). Arrays are in natural sort
-  order, so `n` indexes are stable.
+- `bank_<category>` — one array per top-level category (18 banks: `bank_bass`, `bank_bd`,
+  `bank_breaks`, `bank_cp`, `bank_cym`, `bank_drum_fills`, `bank_drum_loops`, `bank_fx`,
+  `bank_hh`, `bank_instruments`, `bank_perc`, `bank_sd`, `bank_spoken`,
+  `bank_synth_chords`, `bank_synth_loops`, `bank_synth_one_shots`, `bank_toms`,
+  `bank_vox`). Each includes every audio file nested below it.
+- `bank_<subfolder>` — one array per nested folder with audio, so a BPM range or vendor
+  sub-pack can be auditioned on its own (for example `bank_breaks_090_099`,
+  `bank_bass_zero_g`). `bank_root` covers loose audio files at the repository root.
+  Arrays are in natural sort order, so `n` indexes are stable.
 - `pack_<pack-code>` — one array per pack (31 banks, e.g. `pack_cymatics_odyssey_edm`,
   `pack_rhythm_lab_breakbeats_collection`), built from `provenance.json` so a single
   pack can be auditioned with `s("pack_...")`. Entries are grouped by category, then
-  natural sort order. Hyphens in pack codes become underscores. The generator refuses
-  to build the map if any audio file is missing from `provenance.json`.
+  natural sort order. Hyphens in pack codes become underscores. If a file has moved
+  from its recorded path, the generator resolves it by unique filename; it refuses to
+  build the map only when a file cannot be attributed at all.
 - One alias per audio file — the shortest path suffix that is globally unique, sanitized
   to `[a-z0-9_]`, at least three characters, never purely numeric, and never a Strudel
   built-in name (`bd`, `sd`, `hh`, …). For example `170_erupt_drumloop_1` and
@@ -172,9 +196,9 @@ Map structure:
 - Only WebAudio-decodable files are included (`.wav`, `.mp3`, and similar). `.rx2`, `.asd`,
   `.mid`, and artwork are intentionally absent.
 
-The file is pretty-printed with one entry per line — `_base`, then directory banks, then
-pack banks, then file aliases — so additions and renames produce readable diffs.
-Regenerate it rather than hand-editing.
+The file is pretty-printed with one entry per line — `_base`, then category and folder
+banks, then pack banks, then file aliases — so additions and renames produce readable
+diffs. Regenerate it rather than hand-editing.
 
 Examples:
 
@@ -183,16 +207,18 @@ s("170_erupt_drumloop_1")         // file alias
 s("bank_breaks:3")                // fourth file in the bank
 s("bank_breaks").n(3)             // same thing
 s("pack_cymatics_orchid").n(run(8)) // first 8 files of one pack
-s("bank_kicks").n(irand(192))     // random kick roulette
+s("bank_bd").n(irand(148))        // random kick roulette
 ```
 
-Regenerate the map after adding, renaming, or removing audio, and commit it with the
+Regenerate the maps after adding, renaming, or removing audio, and commit them with the
 change:
 
 ```powershell
-python build_strudel_json.py           # writes strudel.json
-python build_strudel_json.py --check   # fails if the map is stale
-python lint_repo.py                    # checks naming, layout, provenance, map freshness
+python build_strudel_json.py                  # writes strudel.json (GitHub)
+python build_strudel_json.py --local          # writes strudel.local.json
+python build_strudel_json.py --check          # fails if strudel.json is stale
+python build_strudel_json.py --local --check  # fails if strudel.local.json is stale
+python lint_repo.py                           # checks naming, layout, provenance, freshness
 ```
 
 The generator defaults to the repo root (the script's directory). Browsers may cache the
@@ -211,11 +237,13 @@ samples('https://raw.githubusercontent.com/nweiler/samples/main/strudel.json?ver
     `.trashes/`, `.temporaryitems/`, `.documentrevisions-v100/`, `.volumeicon.icns`
   - Windows: `thumbs.db`, `ehthumbs.db`, `ehthumbs_vista.db`, `desktop.ini`,
     `$recycle.bin/`
+  - Python: `__pycache__/`, `*.pyc` (bytecode written when running
+    `build_strudel_json.py` or `lint_repo.py`)
 - If junk appears in the tree, delete it and stage the deletion in the same commit;
   tracked junk is not ignored by `.gitignore` until it has been removed.
-- Root metadata files (`.gitignore`, `.gitattributes`, `strudel.json`, `provenance.json`,
-  `build_strudel_json.py`, `lint_repo.py`, `README.md`, `AGENTS.md`) are exempt from the
-  content naming rules.
+- Root metadata files (`.gitignore`, `.gitattributes`, `strudel.json`, `strudel.local.json`,
+  `provenance.json`, `build_strudel_json.py`, `lint_repo.py`, `README.md`, `AGENTS.md`) are
+  exempt from the content naming rules.
 - Run `python lint_repo.py` before committing. It checks top-level layout, naming,
   depth, OS junk, empty directories, `provenance.json` consistency (bidirectional file
   map, pack references, categories, sample counts), `strudel.json` invariants and
@@ -241,6 +269,8 @@ Do **not** fix these without explicit approval:
 - **`breaks/` leading BPM prefix**: Files in `breaks/` are prefixed with their integer BPM (`<bpm>_<name>.<ext>`, e.g., `122_20th_century-hot_pants.wav`, `94_a_tribe_called_quest-midnight_drum_loop.wav`) and stripped of redundant trailing BPM suffixes so natural sorting orders `breaks/` and `bank_breaks` monotonically by tempo.
 
 ## Change log
+
+- **2026-11** — Regenerated `strudel.json` for the type-first restructure and added `strudel.local.json` for `npx @strudel/sampler`. Top-level `bank_<category>` arrays now roll up nested files, so `bank_breaks` (1,141) and `bank_drum_fills` (94) are whole-category banks again, alongside per-folder banks such as `bank_breaks_090_099` and `bank_bass_zero_g`. The map now has 46 banks, 31 pack banks, and 7,463 aliases across 7,463 audio files; every referenced path exists on disk. The generator accepts `--local`, `--base`, `--port`, and `--out`, and falls back to unique-filename matching when an audio file has moved away from its recorded `provenance.json` path (3,402 files in this snapshot, with one ambiguity resolved by the `kicks→bd`/`snares→sd`/`hats→hh`/`claps→cp`/`cymbals→cym`/`percussion→perc` rename map). `strudel.local.json` uses `_base: http://localhost:5432/`; load it with `samples('http://localhost:5432/strudel.local.json')` after starting the sampler. Updated `README.md`, `.gitattributes` (LF for the new map), `.gitignore` (`__pycache__/`, `*.pyc`), and `lint_repo.py`'s root-file exemption. `provenance.json`, `.gitattributes` LFS patterns, and `lint_repo.py`'s category list still reflect the pre-restructure tree and need a follow-up.
 
 - **2026-11** — Added per-pack virtual banks to `strudel.json`: 31 `pack_<pack-code>` banks (hyphens in codes become underscores) built from `provenance.json`, grouped by category then natural order, so one pack can be auditioned with `s("pack_...")`. The generator now refuses to build the map if an audio file is missing from `provenance.json`. Added `lint_repo.py` (layout, naming, depth, junk, provenance consistency, map invariants and freshness, breaks BPM ordering, `.gitattributes` coverage, git index checks) and a human-facing `README.md` with bank/pack tables and audition recipes. Removed the stray empty `fills/` directory. Tracked entries 8,573 → 8,575; non-LFS root metadata files 6 → 8.
 

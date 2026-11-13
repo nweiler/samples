@@ -1,5 +1,6 @@
 # Generated metadata stays LF so `build_strudel_json.py --check` is stable on Windows.
 strudel.json text eol=lf
+strudel.local.json text eol=lf
 provenance.json text eol=lf
 
 bass/** filter=lfs diff=lfs merge=lfs -text

@@ -23,3 +23,7 @@ ehthumbs_vista.db
 Desktop.ini
 desktop.ini
 $RECYCLE.BIN/
+
+# Python bytecode from build_strudel_json.py and lint_repo.py
+__pycache__/
+*.pyc

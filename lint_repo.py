@@ -40,6 +40,7 @@ CONTENT_DIRS = CATEGORY_DIRS + [LICENSES_DIR]
 ROOT_FILES = {
     ".gitattributes", ".gitignore", "AGENTS.md", "README.md",
     "build_strudel_json.py", "lint_repo.py", "provenance.json", "strudel.json",
+    "strudel.local.json",
 }
 
 # a-z, 0-9, _, -, . only; must not start with a dot or hyphen (no hidden
