@@ -92,7 +92,10 @@ def check_layout_and_naming() -> list[str]:
         if os.path.isdir(full):
             if entry not in CONTENT_DIRS:
                 problems.append(f"unexpected top-level directory: {entry}/")
-        elif entry not in ROOT_FILES:
+        elif entry not in ROOT_FILES and (
+            os.path.splitext(entry)[1].lower() not in bsj.AUDIO_EXTENSIONS
+        ):
+            # Loose audio at the root is deliberate: it is the bank_root extras.
             problems.append(f"unexpected root file: {entry}")
 
     for top in CONTENT_DIRS:
@@ -131,6 +134,12 @@ def check_provenance() -> list[str]:
         for dirpath, _dirnames, filenames in os.walk(os.path.join(ROOT, top)):
             for name in filenames:
                 disk.add(rel(os.path.join(dirpath, name)))
+    # Loose audio at the repository root is content too (bank_root).
+    for name in os.listdir(ROOT):
+        if os.path.isfile(os.path.join(ROOT, name)) and (
+            os.path.splitext(name)[1].lower() in bsj.AUDIO_EXTENSIONS
+        ):
+            disk.add(name)
 
     mapped = set(files)
     for path in sorted(mapped - disk):
@@ -149,6 +158,9 @@ def check_provenance() -> list[str]:
         if path.startswith(f"{LICENSES_DIR}/"):
             continue
         sample_files[pack] += 1
+        if "/" not in path:
+            # Loose root audio belongs to the pack but to no category.
+            continue
         parent = path.split("/")[0]
         if parent not in packs[pack].get("categories", []):
             problems.append(f"{path}: lives in {parent}/ but that is not a category of pack {pack}")
@@ -205,10 +217,19 @@ def check_map() -> tuple[list[str], dict]:
             os.path.splitext(n)[1].lower() in bsj.AUDIO_EXTENSIONS for n in names
         )
 
+    def has_audio_below(directory: str) -> bool:
+        for _dirpath, _dirnames, filenames in os.walk(directory):
+            if any(
+                os.path.splitext(n)[1].lower() in bsj.AUDIO_EXTENSIONS for n in filenames
+            ):
+                return True
+        return False
+
     expected_banks: set[str] = set()
     for top in CATEGORY_DIRS:
         top_path = os.path.join(ROOT, top)
-        if holds_audio(top_path):
+        # A top-level bank rolls up everything nested below its category.
+        if has_audio_below(top_path):
             expected_banks.add("bank_" + bsj.keyify(top))
         try:
             subdirs = sorted(os.listdir(top_path))

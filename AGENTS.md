@@ -86,8 +86,10 @@ Repository metadata files are exceptions to the content naming rule: `AGENTS.md`
 - **Keep differently-named assets** even when their bytes match (for example alternate
   MIDI presets, numbered one-shots, or per-context promo files). Only delete true copy
   artifacts such as timestamped download duplicates.
-- Aim for **maximum path depth of 2** for samples (`<category>/<file>`) and 3 for
-  `licenses/<pack>/<file>`.
+- Aim for **maximum path depth of 3** for samples (`<category>/<subfolder>/<file>`) and
+  3 for `licenses/<pack>/<file>`. A category may hold files directly or one level of
+  subfolders (BPM buckets such as `breaks/090-099/`, vendor sub-packs such as
+  `bd/zero-g/`).
 
 ## Bulk rename procedure
 
@@ -123,22 +125,23 @@ Before renaming many files or directories:
 ## Git LFS
 
 - `.gitattributes` at the repo root is authoritative.
-- Patterns use the recursive form `<category>/**` across the 19 top-level content folders
-  (`bass/**`, `breaks/**`, `claps/**`, `cymbals/**`, `drum_fills/**`, `drum_loops/**`,
-  `fx/**`, `hats/**`, `instruments/**`, `kicks/**`, `licenses/**`, `midi/**`,
-  `percussion/**`, `snares/**`, `synth_chords/**`, `synth_loops/**`, `synth_one_shots/**`,
-  `toms/**`, `vox/**`). A bare directory name such as `hits` only matches
+- Patterns use the recursive form `<category>/**` across the 20 top-level content folders
+  (`bass/**`, `bd/**`, `breaks/**`, `cp/**`, `cym/**`, `drum_fills/**`, `drum_loops/**`,
+  `fx/**`, `hh/**`, `instruments/**`, `licenses/**`, `midi/**`, `perc/**`, `sd/**`,
+  `spoken/**`, `synth_chords/**`, `synth_loops/**`, `synth_one_shots/**`, `toms/**`,
+  `vox/**`), plus `/*.wav`, `/*.mp3`, `/*.aif`, and `/*.aiff` for loose root audio
+  (`bank_root`). A bare directory name such as `hits` only matches
   the directory path itself and does **not** apply attributes to files inside.
 - LFS applies to **all files inside each category and license directory**, not only audio.
   This means text files and artwork under `licenses/` are also stored as LFS pointers.
 - `.gitattributes`, `.gitignore`, `AGENTS.md`, `README.md`, `build_strudel_json.py`,
   `lint_repo.py`, `strudel.json`, `strudel.local.json`, and `provenance.json` are stored as
   normal text.
-- Snapshot after the November 2026 type-first flattening and `provenance.json` rollout:
-  8,575 tracked entries, 8,567 LFS pointers (across 31 packs), and 9 non-LFS root
-  metadata files (`.gitattributes`, `.gitignore`, `AGENTS.md`, `README.md`,
-  `build_strudel_json.py`, `lint_repo.py`, `provenance.json`, `strudel.json`,
-  `strudel.local.json`).
+- Snapshot after the November 2026 LFS renormalization: 7,614 tracked entries, 7,605
+  LFS pointers (7,603 under the content directories plus 2 loose root WAVs, across 31
+  packs), and 9 non-LFS root metadata files (`.gitattributes`, `.gitignore`, `AGENTS.md`,
+  `README.md`, `build_strudel_json.py`, `lint_repo.py`, `provenance.json`,
+  `strudel.json`, `strudel.local.json`).
 
 ## Strudel sample map
 
@@ -207,7 +210,7 @@ s("170_erupt_drumloop_1")         // file alias
 s("bank_breaks:3")                // fourth file in the bank
 s("bank_breaks").n(3)             // same thing
 s("pack_cymatics_orchid").n(run(8)) // first 8 files of one pack
-s("bank_bd").n(irand(148))        // random kick roulette
+s("bank_bd").n(irand(149))        // random kick roulette
 ```
 
 Regenerate the maps after adding, renaming, or removing audio, and commit them with the
@@ -269,6 +272,25 @@ Do **not** fix these without explicit approval:
 - **`breaks/` leading BPM prefix**: Files in `breaks/` are prefixed with their integer BPM (`<bpm>_<name>.<ext>`, e.g., `122_20th_century-hot_pants.wav`, `94_a_tribe_called_quest-midnight_drum_loop.wav`) and stripped of redundant trailing BPM suffixes so natural sorting orders `breaks/` and `bank_breaks` monotonically by tempo.
 
 ## Change log
+
+- **2026-11** — Fixed the Git LFS gap, refreshed `provenance.json`, and repaired `lint_repo.py`
+  for the current tree. `.gitattributes` now maps the real 20 content directories
+  (`bd/`, `cp/`, `cym/`, `hh/`, `perc/`, `sd/`, `spoken/`, …) instead of the six stale
+  pre-restructure names, and covers loose root audio; a bulk `git add --renormalize` turned
+  the 1,034 full-blob audio files left in `bd/`, `cp/`, `cym/`, `hh/`, `perc/`, `sd/`,
+  `spoken/`, and the two root WAVs (352.1 MiB) into LFS pointers. `provenance.json` was
+  rebuilt from the disk tree (7,603 content files + 2 root WAVs = 7,605 entries; 964 dead
+  entries dropped, 908 of them `.rx2`), preserving pack metadata and recomputing
+  `categories`/`sample_count`; `vox` is back to 96. The two extensionless `zero_g` audio
+  files were renamed to `bd/zero_g.wav` and `hh/zero_g.wav` and registered under
+  `zero-g-sample-pack`. `lint_repo.py` now knows the current 19 category directories,
+  allows `<category>/<subfolder>/<file>` depth, expects nested and roll-up banks plus
+  `bank_root`, walks `breaks/` buckets, flags stale `.gitattributes` rules, and treats
+  root audio as content. Normalized 105 `breaks/` files to the documented
+  `<bpm>_<name>.wav` form (103 trailing-BPM renames plus 2 re-bucketed) so `bank_breaks`
+  sorts monotonically by tempo. Regenerated both maps: 7,465 audio files, 46 banks,
+  31 pack banks, 7,465 aliases; `bank_bd` 149, `bank_hh` 90, `bank_breaks` 1,141,
+  `pack_zero_g_sample_pack` 3,102. All seven lint checks pass.
 
 - **2026-11** — Regenerated `strudel.json` for the type-first restructure and added `strudel.local.json` for `npx @strudel/sampler`. Top-level `bank_<category>` arrays now roll up nested files, so `bank_breaks` (1,141) and `bank_drum_fills` (94) are whole-category banks again, alongside per-folder banks such as `bank_breaks_090_099` and `bank_bass_zero_g`. The map now has 46 banks, 31 pack banks, and 7,463 aliases across 7,463 audio files; every referenced path exists on disk. The generator accepts `--local`, `--base`, `--port`, and `--out`, and falls back to unique-filename matching when an audio file has moved away from its recorded `provenance.json` path (3,402 files in this snapshot, with one ambiguity resolved by the `kicks→bd`/`snares→sd`/`hats→hh`/`claps→cp`/`cymbals→cym`/`percussion→perc` rename map). `strudel.local.json` uses `_base: http://localhost:5432/`; load it with `samples('http://localhost:5432/strudel.local.json')` after starting the sampler. Updated `README.md`, `.gitattributes` (LF for the new map), `.gitignore` (`__pycache__/`, `*.pyc`), and `lint_repo.py`'s root-file exemption. `provenance.json`, `.gitattributes` LFS patterns, and `lint_repo.py`'s category list still reflect the pre-restructure tree and need a follow-up.
 

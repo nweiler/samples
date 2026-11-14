@@ -2,7 +2,7 @@
 
 A local library of third-party sample packs, reorganized by sample type for
 use with [Strudel](https://strudel.cc). 31 packs, 7,605 content files, of which
-7,463 are playable audio samples. Audio and pack metadata are tracked with Git
+7,465 are playable audio samples. Audio and pack metadata are tracked with Git
 LFS; every file's pack and original path is recorded in `provenance.json`.
 
 ## Play it in Strudel
@@ -18,7 +18,7 @@ Then:
 ```js
 s("bank_breaks:3")                            // 4th break, ordered by tempo
 s("bank_breaks").n(run(16))                   // first 16 breaks, tempo order
-s("bank_bd").n(irand(148))                    // random kick roulette
+s("bank_bd").n(irand(149))                    // random kick roulette
 s("pack_cymatics_odyssey_edm").n(irand(367))  // random sample from one pack
 s("94_a_tribe_called_quest_midnight_drum_loop") // a specific file by alias
 ```
@@ -42,7 +42,7 @@ npx @strudel/sampler          # http://localhost:5432
 ```js
 samples('http://localhost:5432/strudel.local.json');
 s("bank_breaks").n(run(8));
-s("bank_bd").n(irand(148));
+s("bank_bd").n(irand(149));
 ```
 
 Use a different port with `PORT=5555 npx @strudel/sampler`, then regenerate the
@@ -60,14 +60,14 @@ sample count — searchable, and useful for confirming what a bank contains.
 | Bank | Contents | Files |
 |---|---|---:|
 | `bank_bass` | bass one-shots and loops | 418 |
-| `bank_bd` | kicks (`bd` = Strudel kick) | 148 |
+| `bank_bd` | kicks (`bd` = Strudel kick) | 149 |
 | `bank_breaks` | funk/soul/hip-hop drum breaks, ordered by BPM | 1141 |
 | `bank_cp` | claps (`cp`) | 51 |
 | `bank_cym` | crashes, rides, splashes | 39 |
 | `bank_drum_fills` | drum fills | 94 |
 | `bank_drum_loops` | drum loops | 637 |
 | `bank_fx` | impacts, risers, textures | 1106 |
-| `bank_hh` | closed/open hats (`hh`) | 89 |
+| `bank_hh` | closed/open hats (`hh`) | 90 |
 | `bank_instruments` | melodic instruments | 241 |
 | `bank_perc` | shakers, congas, misc percussion | 334 |
 | `bank_sd` | snares and rim shots (`sd`) | 370 |
@@ -121,7 +121,7 @@ browsed at a time. Entries are grouped by category, then natural order:
 | `pack_vox` | 96 |
 | `pack_wdh_drums` | 7 |
 | `pack_whois_rossi` | 20 |
-| `pack_zero_g_sample_pack` | 3100 |
+| `pack_zero_g_sample_pack` | 3102 |
 
 ## Layout and conventions
 

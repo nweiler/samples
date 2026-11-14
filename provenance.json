@@ -477,7 +477,7 @@
         "synth_loops",
         "vox"
       ],
-      "sample_count": 94,
+      "sample_count": 96,
       "notes": "Vocal phrases, speech clips, world percussion, and music excerpts"
     },
     "wdh-drums": {
@@ -2810,10 +2810,6 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/lyn_collins-wheel_of_life.wav"
     },
-    "breaks/060-069/57-glass_jaw-69_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/57 - Glass Jaw - 69 BPM.wav"
-    },
     "breaks/060-069/60_steve_colt-dynamite2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/steve_colt-dynamite2.wav"
@@ -2834,10 +2830,6 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/shawn_lees_ping_pong_orchestra-tired.wav"
     },
-    "breaks/060-069/64-rust_belt-68_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/64 - Rust Belt - 68 BPM.wav"
-    },
     "breaks/060-069/64_baader_meinhof-its_a_moral_issue.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/baader_meinhof-its_a_moral_issue.wav"
@@ -2854,129 +2846,69 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/ohio_players-never_had_a_dream_part1.wav"
     },
-    "breaks/060-069/68-iron_horse-79_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/68 - Iron Horse - 79 BPM.wav"
-    },
     "breaks/060-069/68_lee_dorsey-sneakin_sally_thru_the_alley.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/lee_dorsey-sneakin_sally_thru_the_alley.wav"
     },
-    "breaks/060-069/69-static_hum-79_bpm.wav": {
+    "breaks/060-069/68_rust_belt.wav": {
       "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/69 - Static Hum - 79 BPM.wav"
+      "original_path": "boom-bap-drum-loops/64 - Rust Belt - 68 BPM.wav"
     },
     "breaks/060-069/69_fanny-ive_had_it.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/fanny-ive_had_it.wav"
     },
-    "breaks/070-079/04-buffalo_winter-78_bpm.wav": {
+    "breaks/060-069/69_glass_jaw.wav": {
       "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/04 - Buffalo Winter - 78 BPM.wav"
+      "original_path": "boom-bap-drum-loops/57 - Glass Jaw - 69 BPM.wav"
     },
-    "breaks/070-079/06-concrete_halls-74_bpm.wav": {
+    "breaks/060-069/69_penny_loafer.wav": {
       "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/06 - Concrete Halls - 74 BPM.wav"
+      "original_path": "boom-bap-drum-loops/75 - Penny Loafer - 69 BPM.wav"
     },
-    "breaks/070-079/100-curtain_call-77_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/100 - Curtain Call - 77 BPM.wav"
-    },
-    "breaks/070-079/12-rusted_gate-76_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/12 - Rusted Gate - 76 BPM.wav"
-    },
-    "breaks/070-079/132_ojahs-roadside_75.wav": {
-      "pack": "rhythm-lab-breakbeats-collection",
-      "original_path": "rhythm-lab-breakbeats-collection/wav/ojahs-roadside_75.wav"
-    },
-    "breaks/070-079/15-night_shift-79_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/15 - Night Shift - 79 BPM.wav"
-    },
-    "breaks/070-079/17-heavy_coat-77_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/17 - Heavy Coat - 77 BPM.wav"
-    },
-    "breaks/070-079/18-dead_lot-75_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/18 - Dead Lot - 75 BPM.wav"
-    },
-    "breaks/070-079/21-iron_lung-72_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/21 - Iron Lung - 72 BPM.wav"
-    },
-    "breaks/070-079/24-grey_skies-73_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/24 - Grey Skies - 73 BPM.wav"
-    },
-    "breaks/070-079/26-steel_wool-74_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/26 - Steel Wool - 74 BPM.wav"
-    },
-    "breaks/070-079/29-wax_seal-73_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/29 - Wax Seal - 73 BPM.wav"
-    },
-    "breaks/070-079/30-cellar_door-72_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/30 - Cellar Door - 72 BPM.wav"
-    },
-    "breaks/070-079/31-burnt_ends-70_bpm.wav": {
+    "breaks/070-079/70_burnt_ends.wav": {
       "pack": "boom-bap-drum-loops",
       "original_path": "boom-bap-drum-loops/31 - Burnt Ends - 70 BPM.wav"
-    },
-    "breaks/070-079/34-cold_cuts-71_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/34 - Cold Cuts - 71 BPM.wav"
-    },
-    "breaks/070-079/35-stone_face-70_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/35 - Stone Face - 70 BPM.wav"
-    },
-    "breaks/070-079/38-rain_check-72_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/38 - Rain Check - 72 BPM.wav"
-    },
-    "breaks/070-079/40-broken_halo-77_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/40 - Broken Halo - 77 BPM.wav"
-    },
-    "breaks/070-079/45-gravel_road-76_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/45 - Gravel Road - 76 BPM.wav"
-    },
-    "breaks/070-079/48-old_money-77_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/48 - Old Money - 77 BPM.wav"
-    },
-    "breaks/070-079/50-shadow_box-78_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/50 - Shadow Box - 78 BPM.wav"
-    },
-    "breaks/070-079/52-pinky_ring-71_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/52 - Pinky Ring - 71 BPM.wav"
-    },
-    "breaks/070-079/53-freight_yard-73_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/53 - Freight Yard - 73 BPM.wav"
-    },
-    "breaks/070-079/55-ash_tray-77_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/55 - Ash Tray - 77 BPM.wav"
     },
     "breaks/070-079/70_christine_perfect-and_thats_saying_a_lot.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/christine_perfect-and_thats_saying_a_lot.wav"
     },
+    "breaks/070-079/70_stone_face.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/35 - Stone Face - 70 BPM.wav"
+    },
+    "breaks/070-079/71_cold_cuts.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/34 - Cold Cuts - 71 BPM.wav"
+    },
+    "breaks/070-079/71_pinky_ring.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/52 - Pinky Ring - 71 BPM.wav"
+    },
     "breaks/070-079/71_steve_grey-pulp.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/steve_grey-pulp.wav"
     },
+    "breaks/070-079/72_cellar_door.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/30 - Cellar Door - 72 BPM.wav"
+    },
+    "breaks/070-079/72_iron_lung.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/21 - Iron Lung - 72 BPM.wav"
+    },
+    "breaks/070-079/72_junkyard_dog.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/87 - Junkyard Dog - 72 BPM.wav"
+    },
     "breaks/070-079/72_led_zeppelin-when_the_levee_breaks.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/led_zeppelin-when_the_levee_breaks.wav"
+    },
+    "breaks/070-079/72_rain_check.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/38 - Rain Check - 72 BPM.wav"
     },
     "breaks/070-079/72_soul_lifters-hot_funky_and_sweaty_part1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -2990,17 +2922,41 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/atomic_rooster-the_rock.wav"
     },
+    "breaks/070-079/73_blackout.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/82 - Blackout - 73 BPM.wav"
+    },
+    "breaks/070-079/73_deadbolt.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/91 - Deadbolt - 73 BPM.wav"
+    },
+    "breaks/070-079/73_freight_yard.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/53 - Freight Yard - 73 BPM.wav"
+    },
     "breaks/070-079/73_funkadelic-good_old_music_part1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/funkadelic-good_old_music_part1.wav"
+    },
+    "breaks/070-079/73_grey_skies.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/24 - Grey Skies - 73 BPM.wav"
     },
     "breaks/070-079/73_les_mccann-the_harlem_buck_dance_strut_montage.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/les_mccann-the_harlem_buck_dance_strut_montage.wav"
     },
+    "breaks/070-079/73_loading_dock.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/76 - Loading Dock - 73 BPM.wav"
+    },
     "breaks/070-079/73_p.f._flyer-rocks_off_part1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/p.f._flyer-rocks_off_part1.wav"
+    },
+    "breaks/070-079/73_wax_seal.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/29 - Wax Seal - 73 BPM.wav"
     },
     "breaks/070-079/74_bob_azzam-rain_rain_go_away.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3010,9 +2966,21 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/chuck_jackson-through_all_times.wav"
     },
+    "breaks/070-079/74_concrete_halls.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/06 - Concrete Halls - 74 BPM.wav"
+    },
     "breaks/070-079/74_eminem-cleaning_out_my_closet_drum_loop.wav": {
       "pack": "vox",
       "original_path": "vox/Eminem - Cleaning out my Closet (Drum Loop) 74 BPM.wav"
+    },
+    "breaks/070-079/74_stairwell.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/81 - Stairwell - 74 BPM.wav"
+    },
+    "breaks/070-079/74_steel_wool.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/26 - Steel Wool - 74 BPM.wav"
     },
     "breaks/070-079/74_stefano_torrosi-feeling_tense_part1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3021,10 +2989,6 @@
     "breaks/070-079/74_tony_joe_white-stud_spider.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/tony_joe_white-stud_spider.wav"
-    },
-    "breaks/070-079/75-penny_loafer-69_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/75 - Penny Loafer - 69 BPM.wav"
     },
     "breaks/070-079/75_bobby_garrett-keep_it_coming.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3038,13 +3002,17 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/commodores-your_special.wav"
     },
+    "breaks/070-079/75_dead_lot.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/18 - Dead Lot - 75 BPM.wav"
+    },
+    "breaks/070-079/75_sawdust.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/84 - Sawdust - 75 BPM.wav"
+    },
     "breaks/070-079/75_the_montereys-get_down.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/the_montereys-get_down.wav"
-    },
-    "breaks/070-079/76-loading_dock-73_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/76 - Loading Dock - 73 BPM.wav"
     },
     "breaks/070-079/76_carpenters-goofus_ver.1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3070,13 +3038,29 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/funkadelic-good_old_music_part3.wav"
     },
+    "breaks/070-079/76_gravel_road.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/45 - Gravel Road - 76 BPM.wav"
+    },
     "breaks/070-079/76_j_dilla-purple_drum_loop.wav": {
       "pack": "vox",
       "original_path": "vox/J. Dilla - Purple (Drum Loop) 76 BPM.wav"
     },
+    "breaks/070-079/76_rusted_gate.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/12 - Rusted Gate - 76 BPM.wav"
+    },
     "breaks/070-079/76_southside_movement-save_the_world_part1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/southside_movement-save_the_world_part1.wav"
+    },
+    "breaks/070-079/77_ash_tray.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/55 - Ash Tray - 77 BPM.wav"
+    },
+    "breaks/070-079/77_bill_withers-use_me_101_loopfix.wav": {
+      "pack": "samples-extra",
+      "original_path": "samples-extra/break/bill_withers-use_me_101_loopfix_2019-03-04_124553.wav"
     },
     "breaks/070-079/77_billy_gardener-i_got_some.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3094,6 +3078,14 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/brethren-outside_love_ver2.wav"
     },
+    "breaks/070-079/77_broken_halo.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/40 - Broken Halo - 77 BPM.wav"
+    },
+    "breaks/070-079/77_curtain_call.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/100 - Curtain Call - 77 BPM.wav"
+    },
     "breaks/070-079/77_funkadelic-good_old_music_part4.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/funkadelic-good_old_music_part4.wav"
@@ -3106,13 +3098,29 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/hardys_jet_band-selected_sound.wav"
     },
+    "breaks/070-079/77_heavy_coat.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/17 - Heavy Coat - 77 BPM.wav"
+    },
     "breaks/070-079/77_hookfoot-is_anyone_there_ver.1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/hookfoot-is_anyone_there_ver.1.wav"
     },
+    "breaks/070-079/77_old_money.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/48 - Old Money - 77 BPM.wav"
+    },
+    "breaks/070-079/78_buffalo_winter.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/04 - Buffalo Winter - 78 BPM.wav"
+    },
     "breaks/070-079/78_cold_grits-its_your_thing.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/cold_grits-its_your_thing.wav"
+    },
+    "breaks/070-079/78_shadow_box.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/50 - Shadow Box - 78 BPM.wav"
     },
     "breaks/070-079/78_ultrafunk-use_me.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3134,145 +3142,33 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/christine_mcvie-and_thats_saying_a_lot_ver.2.wav"
     },
+    "breaks/070-079/79_iron_horse.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/68 - Iron Horse - 79 BPM.wav"
+    },
     "breaks/070-079/79_little_richard-the_rill_thing.wav": {
       "pack": "samples-extra",
       "original_path": "samples-extra/break/little_richard-the_rill_thing_2019-03-04_124550.wav"
+    },
+    "breaks/070-079/79_night_shift.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/15 - Night Shift - 79 BPM.wav"
     },
     "breaks/070-079/79_ojiji-hang_on.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/ojiji-hang_on.wav"
     },
-    "breaks/070-079/81-stairwell-74_bpm.wav": {
+    "breaks/070-079/79_smelting_pot.wav": {
       "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/81 - Stairwell - 74 BPM.wav"
+      "original_path": "boom-bap-drum-loops/97 - Smelting Pot - 79 BPM.wav"
     },
-    "breaks/070-079/82-blackout-73_bpm.wav": {
+    "breaks/070-079/79_static_hum.wav": {
       "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/82 - Blackout - 73 BPM.wav"
+      "original_path": "boom-bap-drum-loops/69 - Static Hum - 79 BPM.wav"
     },
-    "breaks/070-079/84-sawdust-75_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/84 - Sawdust - 75 BPM.wav"
-    },
-    "breaks/080-089/01-butcher_block-86_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/01 - Butcher Block - 86 BPM.wav"
-    },
-    "breaks/080-089/05-cold_plate-88_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/05 - Cold Plate - 88 BPM.wav"
-    },
-    "breaks/080-089/07-chrome_fiend-84_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/07 - Chrome Fiend - 84 BPM.wav"
-    },
-    "breaks/080-089/08-basement_ledger-81_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/08 - Basement Ledger - 81 BPM.wav"
-    },
-    "breaks/080-089/10-back_door_deal-80_bpm.wav": {
+    "breaks/080-089/80_back_door_deal.wav": {
       "pack": "boom-bap-drum-loops",
       "original_path": "boom-bap-drum-loops/10 - Back Door Deal - 80 BPM.wav"
-    },
-    "breaks/080-089/11-gallery_heist-85_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/11 - Gallery Heist - 85 BPM.wav"
-    },
-    "breaks/080-089/13-smoke_room-83_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/13 - Smoke Room - 83 BPM.wav"
-    },
-    "breaks/080-089/14-velvet_brick-87_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/14 - Velvet Brick - 87 BPM.wav"
-    },
-    "breaks/080-089/16-trunk_music-89_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/16 - Trunk Music - 89 BPM.wav"
-    },
-    "breaks/080-089/19-marble_floor-82_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/19 - Marble Floor - 82 BPM.wav"
-    },
-    "breaks/080-089/28-lead_pipe-86_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/28 - Lead Pipe - 86 BPM.wav"
-    },
-    "breaks/080-089/33-brass_knuckles-84_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/33 - Brass Knuckles - 84 BPM.wav"
-    },
-    "breaks/080-089/36-dust_jacket-83_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/36 - Dust Jacket - 83 BPM.wav"
-    },
-    "breaks/080-089/37-low_ceiling-80_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/37 - Low Ceiling - 80 BPM.wav"
-    },
-    "breaks/080-089/39-oil_canvas-80_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/39 - Oil Canvas - 80 BPM.wav"
-    },
-    "breaks/080-089/41-cash_register-84_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/41 - Cash Register - 84 BPM.wav"
-    },
-    "breaks/080-089/42-wire_hanger-84_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/42 - Wire Hanger - 84 BPM.wav"
-    },
-    "breaks/080-089/43-paper_trail-83_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/43 - Paper Trail - 83 BPM.wav"
-    },
-    "breaks/080-089/49-loose_teeth-85_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/49 - Loose Teeth - 85 BPM.wav"
-    },
-    "breaks/080-089/51-cement_mixer-85_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/51 - Cement Mixer - 85 BPM.wav"
-    },
-    "breaks/080-089/54-leather_bound-82_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/54 - Leather Bound - 82 BPM.wav"
-    },
-    "breaks/080-089/60-gold_leaf-87_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/60 - Gold Leaf - 87 BPM.wav"
-    },
-    "breaks/080-089/61-tow_truck-87_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/61 - Tow Truck - 87 BPM.wav"
-    },
-    "breaks/080-089/62-cobblestone-88_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/62 - Cobblestone - 88 BPM.wav"
-    },
-    "breaks/080-089/63-mink_stole-88_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/63 - Mink Stole - 88 BPM.wav"
-    },
-    "breaks/080-089/66-dim_bulb-89_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/66 - Dim Bulb - 89 BPM.wav"
-    },
-    "breaks/080-089/70-coal_chute-81_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/70 - Coal Chute - 81 BPM.wav"
-    },
-    "breaks/080-089/71-foreclosure-82_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/71 - Foreclosure - 82 BPM.wav"
-    },
-    "breaks/080-089/73-lake_effect-82_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/73 - Lake Effect - 82 BPM.wav"
-    },
-    "breaks/080-089/74-ink_blot-87_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/74 - Ink Blot - 87 BPM.wav"
     },
     "breaks/080-089/80_drums_of_death-bonus_beat_1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3294,6 +3190,14 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/joe_bataan-when_youre_down.wav"
     },
+    "breaks/080-089/80_low_ceiling.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/37 - Low Ceiling - 80 BPM.wav"
+    },
+    "breaks/080-089/80_oil_canvas.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/39 - Oil Canvas - 80 BPM.wav"
+    },
     "breaks/080-089/80_roy_porter_sound_machine-party_time.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/roy_porter_sound_machine-party_time.wav"
@@ -3305,6 +3209,14 @@
     "breaks/080-089/80_the_jaggerz-memoirs_of_the_traveler.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/the_jaggerz-memoirs_of_the_traveler.wav"
+    },
+    "breaks/080-089/81_basement_ledger.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/08 - Basement Ledger - 81 BPM.wav"
+    },
+    "breaks/080-089/81_coal_chute.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/70 - Coal Chute - 81 BPM.wav"
     },
     "breaks/080-089/81_frankie_seay_and_the_soul_riders-soul_food_part1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3338,9 +3250,25 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/eddie_simpson-big_black_funky_slave_edit.wav"
     },
+    "breaks/080-089/82_foreclosure.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/71 - Foreclosure - 82 BPM.wav"
+    },
     "breaks/080-089/82_ice_cube-it_was_a_good_day_drum_loop.wav": {
       "pack": "vox",
       "original_path": "vox/Ice Cube - It was a good day (Drum Loop) 82 BPM.wav"
+    },
+    "breaks/080-089/82_lake_effect.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/73 - Lake Effect - 82 BPM.wav"
+    },
+    "breaks/080-089/82_leather_bound.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/54 - Leather Bound - 82 BPM.wav"
+    },
+    "breaks/080-089/82_marble_floor.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/19 - Marble Floor - 82 BPM.wav"
     },
     "breaks/080-089/82_stevie_wonder-passo_le_mie_notti_qui_da_solo_2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3358,17 +3286,33 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/cresa_watson-dead.wav"
     },
+    "breaks/080-089/83_dust_jacket.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/36 - Dust Jacket - 83 BPM.wav"
+    },
     "breaks/080-089/83_idris_muhammad-power_of_soul_remastered.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/idris_muhammad-power_of_soul_remastered.wav"
+    },
+    "breaks/080-089/83_night_watch.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/88 - Night Watch - 83 BPM.wav"
     },
     "breaks/080-089/83_ohio_players-funky_worm.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/ohio_players-funky_worm.wav"
     },
+    "breaks/080-089/83_paper_trail.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/43 - Paper Trail - 83 BPM.wav"
+    },
     "breaks/080-089/83_rufus_thomas-do_the_funky_penguin_part1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/rufus_thomas-do_the_funky_penguin_part1.wav"
+    },
+    "breaks/080-089/83_smoke_room.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/13 - Smoke Room - 83 BPM.wav"
     },
     "breaks/080-089/83_southside_movement-save_the_world_part2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3382,9 +3326,25 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/apple_and_the_three_oranges-curse_upon_the_world.wav"
     },
+    "breaks/080-089/84_bank_vault.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/85 - Bank Vault - 84 BPM.wav"
+    },
     "breaks/080-089/84_barry_white-im_gonna_love_you_just_a_little_bit_more_baby.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/barry_white-im_gonna_love_you_just_a_little_bit_more_baby.wav"
+    },
+    "breaks/080-089/84_brass_knuckles.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/33 - Brass Knuckles - 84 BPM.wav"
+    },
+    "breaks/080-089/84_cash_register.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/41 - Cash Register - 84 BPM.wav"
+    },
+    "breaks/080-089/84_chrome_fiend.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/07 - Chrome Fiend - 84 BPM.wav"
     },
     "breaks/080-089/84_dee_dee_drums-dee_dee_warwick.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3418,9 +3378,9 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/titanic-something_on_my_mind.wav"
     },
-    "breaks/080-089/85-bank_vault-84_bpm.wav": {
+    "breaks/080-089/84_wire_hanger.wav": {
       "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/85 - Bank Vault - 84 BPM.wav"
+      "original_path": "boom-bap-drum-loops/42 - Wire Hanger - 84 BPM.wav"
     },
     "breaks/080-089/85_break_23.wav": {
       "pack": "zero-g-sample-pack",
@@ -3430,6 +3390,14 @@
       "pack": "zero-g-sample-pack",
       "original_path": "zero-g-sample-pack/zero_g-disc_3/breaks/break_25.wav"
     },
+    "breaks/080-089/85_cement_mixer.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/51 - Cement Mixer - 85 BPM.wav"
+    },
+    "breaks/080-089/85_gallery_heist.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/11 - Gallery Heist - 85 BPM.wav"
+    },
     "breaks/080-089/85_isaac_hayes-joy_part2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/isaac_hayes-joy_part2.wav"
@@ -3437,6 +3405,10 @@
     "breaks/080-089/85_isaac_hayes-joy_part3.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/isaac_hayes-joy_part3.wav"
+    },
+    "breaks/080-089/85_loose_teeth.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/49 - Loose Teeth - 85 BPM.wav"
     },
     "breaks/080-089/85_matthew_larkin_cassell-in_my_life.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3458,10 +3430,6 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/ultrafunk-buffalo_soldier.wav"
     },
-    "breaks/080-089/86-overcoat-94_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/86 - Overcoat - 94 BPM.wav"
-    },
     "breaks/080-089/86_2nd_chapter_of_acts-the_devils_lost_again.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/1/2nd_chapter_of_acts-the_devils_lost_again.wav"
@@ -3469,6 +3437,14 @@
     "breaks/080-089/86_allen_toussaint-get_out_of_my_life_woman.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/allen_toussaint-get_out_of_my_life_woman.wav"
+    },
+    "breaks/080-089/86_butcher_block.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/01 - Butcher Block - 86 BPM.wav"
+    },
+    "breaks/080-089/86_crown_molding.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/95 - Crown Molding - 86 BPM.wav"
     },
     "breaks/080-089/86_dandelion_wine-hotdog.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3494,6 +3470,10 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/johnny_jenkins-i_walk_on_guilded_splinters_ver.2_part1.wav"
     },
+    "breaks/080-089/86_lead_pipe.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/28 - Lead Pipe - 86 BPM.wav"
+    },
     "breaks/080-089/86_little_beaver-i_like_the_way_you_do_your_thing.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/little_beaver-i_like_the_way_you_do_your_thing.wav"
@@ -3509,10 +3489,6 @@
     "breaks/080-089/86_tony_cook_and_the_gas-slip_the_drummer_some.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/tony_cook_and_the_gas-slip_the_drummer_some.wav"
-    },
-    "breaks/080-089/87-junkyard_dog-72_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/87 - Junkyard Dog - 72 BPM.wav"
     },
     "breaks/080-089/87_5th_dimension-rainmaker_cd.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3537,6 +3513,14 @@
     "breaks/080-089/87_frankie_seay_and_the_soul_riders-soul_food_part3.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/frankie_seay_and_the_soul_riders-soul_food_part3.wav"
+    },
+    "breaks/080-089/87_gold_leaf.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/60 - Gold Leaf - 87 BPM.wav"
+    },
+    "breaks/080-089/87_ink_blot.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/74 - Ink Blot - 87 BPM.wav"
     },
     "breaks/080-089/87_kanye_west-runaway_drum_loop.wav": {
       "pack": "vox",
@@ -3566,17 +3550,25 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/the_new_apocalypse-get_outta_my_life_woman.wav"
     },
+    "breaks/080-089/87_tow_truck.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/61 - Tow Truck - 87 BPM.wav"
+    },
+    "breaks/080-089/87_velvet_brick.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/14 - Velvet Brick - 87 BPM.wav"
+    },
     "breaks/080-089/87_waltel_branco-meu_balanco.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/waltel_branco-meu_balanco.wav"
     },
-    "breaks/080-089/88-night_watch-83_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/88 - Night Watch - 83 BPM.wav"
-    },
     "breaks/080-089/88_average_white_band-school_boy_crush.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/average_white_band-school_boy_crush.wav"
+    },
+    "breaks/080-089/88_back_taxes.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/90 - Back Taxes - 88 BPM.wav"
     },
     "breaks/080-089/88_bernard_purdie-alexanders_rag_time_band_part2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3585,6 +3577,14 @@
     "breaks/080-089/88_bernard_purdie-funky_donkey_part2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/bernard_purdie-funky_donkey_part2.wav"
+    },
+    "breaks/080-089/88_cobblestone.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/62 - Cobblestone - 88 BPM.wav"
+    },
+    "breaks/080-089/88_cold_plate.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/05 - Cold Plate - 88 BPM.wav"
     },
     "breaks/080-089/88_duralcha-ghetto_funk.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3601,6 +3601,10 @@
     "breaks/080-089/88_kanye_west-drive_slow_drum_loop.wav": {
       "pack": "vox",
       "original_path": "vox/Kanye West - Drive Slow (Drum Loop) 88 BPM.wav"
+    },
+    "breaks/080-089/88_mink_stole.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/63 - Mink Stole - 88 BPM.wav"
     },
     "breaks/080-089/88_monk_higgins-one_man_band_part2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3626,10 +3630,6 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/turner_brothers-sweetest_thing_in_the_world.wav"
     },
-    "breaks/080-089/89-porcelain-89_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/89 - Porcelain - 89 BPM.wav"
-    },
     "breaks/080-089/89_bernard_purdie-funky_donkey_part3.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/bernard_purdie-funky_donkey_part3.wav"
@@ -3637,6 +3637,10 @@
     "breaks/080-089/89_bobby_hutcherson-rain_every_thursday.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/bobby_hutcherson-rain_every_thursday.wav"
+    },
+    "breaks/080-089/89_dim_bulb.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/66 - Dim Bulb - 89 BPM.wav"
     },
     "breaks/080-089/89_freda_payne-the_easiest_way_to_fall.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3658,6 +3662,10 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/pointer_sisters-yes_we_can_can_part1.wav"
     },
+    "breaks/080-089/89_porcelain.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/89 - Porcelain - 89 BPM.wav"
+    },
     "breaks/080-089/89_rare_earth-i_just_want_to_celebrate.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/rare_earth-i_just_want_to_celebrate.wav"
@@ -3670,6 +3678,10 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/souflay-scratch.wav"
     },
+    "breaks/080-089/89_trunk_music.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/16 - Trunk Music - 89 BPM.wav"
+    },
     "breaks/080-089/89_unknown_artist-dancer_maria_45_edit.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/unknown_artist-dancer_maria_45_edit.wav"
@@ -3677,102 +3689,6 @@
     "breaks/080-089/89_vecchio-nsambei.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/vecchio-nsambei.wav"
-    },
-    "breaks/090-099/02-flygod_steps-90_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/02 - Flygod Steps - 90 BPM.wav"
-    },
-    "breaks/090-099/03-machine_room-92_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/03 - Machine Room - 92 BPM.wav"
-    },
-    "breaks/090-099/09-ice_pick-94_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/09 - Ice Pick - 94 BPM.wav"
-    },
-    "breaks/090-099/20-corner_store-91_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/20 - Corner Store - 91 BPM.wav"
-    },
-    "breaks/090-099/22-silk_gloves-93_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/22 - Silk Gloves - 93 BPM.wav"
-    },
-    "breaks/090-099/23-pawn_shop-95_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/23 - Pawn Shop - 95 BPM.wav"
-    },
-    "breaks/090-099/25-final_hour-96_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/25 - Final Hour - 96 BPM.wav"
-    },
-    "breaks/090-099/27-back_alley-95_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/27 - Back Alley - 95 BPM.wav"
-    },
-    "breaks/090-099/32-dirty_ice-90_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/32 - Dirty Ice - 90 BPM.wav"
-    },
-    "breaks/090-099/44-bent_fork-98_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/44 - Bent Fork - 98 BPM.wav"
-    },
-    "breaks/090-099/46-fur_collar-92_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/46 - Fur Collar - 92 BPM.wav"
-    },
-    "breaks/090-099/47-tin_roof-94_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/47 - Tin Roof - 94 BPM.wav"
-    },
-    "breaks/090-099/56-cracked_lens-94_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/56 - Cracked Lens - 94 BPM.wav"
-    },
-    "breaks/090-099/58-steam_pipe-91_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/58 - Steam Pipe - 91 BPM.wav"
-    },
-    "breaks/090-099/59-hard_hat-93_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/59 - Hard Hat - 93 BPM.wav"
-    },
-    "breaks/090-099/65-late_fee-95_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/65 - Late Fee - 95 BPM.wav"
-    },
-    "breaks/090-099/67-bricklayer-93_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/67 - Bricklayer - 93 BPM.wav"
-    },
-    "breaks/090-099/72-ivory_keys-93_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/72 - Ivory Keys - 93 BPM.wav"
-    },
-    "breaks/090-099/77-chain_link-97_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/77 - Chain Link - 97 BPM.wav"
-    },
-    "breaks/090-099/78-slate_grey-91_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/78 - Slate Grey - 91 BPM.wav"
-    },
-    "breaks/090-099/79-fire_escape-97_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/79 - Fire Escape - 97 BPM.wav"
-    },
-    "breaks/090-099/80-velvet_rope-92_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/80 - Velvet Rope - 92 BPM.wav"
-    },
-    "breaks/090-099/83-snow_tires-93_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/83 - Snow Tires - 93 BPM.wav"
-    },
-    "breaks/090-099/90-back_taxes-88_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/90 - Back Taxes - 88 BPM.wav"
     },
     "breaks/090-099/90_al_jarreau-kissing_my_love_cd.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3818,9 +3734,17 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/charles_earland-never_can_say_goodbye.wav"
     },
+    "breaks/090-099/90_dirty_ice.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/32 - Dirty Ice - 90 BPM.wav"
+    },
     "breaks/090-099/90_donny_hathaway-magnificent.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/donny_hathaway-magnificent.wav"
+    },
+    "breaks/090-099/90_flygod_steps.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/02 - Flygod Steps - 90 BPM.wav"
     },
     "breaks/090-099/90_fugees-ready_or_not_drum_loop.wav": {
       "pack": "vox",
@@ -3882,13 +3806,13 @@
       "pack": "vox",
       "original_path": "vox/Talib Kweli - 'Get By' Drum Loop 90bpm.wav"
     },
-    "breaks/090-099/91-deadbolt-73_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/91 - Deadbolt - 73 BPM.wav"
-    },
     "breaks/090-099/91_bad_medicine-trespasser_part_3.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/bad_medicine-trespasser_part_3.wav"
+    },
+    "breaks/090-099/91_corner_store.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/20 - Corner Store - 91 BPM.wav"
     },
     "breaks/090-099/91_explosions-garden_of_four_trees.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3934,6 +3858,14 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/rusty_bryant-fire_eater_part1.wav"
     },
+    "breaks/090-099/91_slate_grey.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/78 - Slate Grey - 91 BPM.wav"
+    },
+    "breaks/090-099/91_steam_pipe.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/58 - Steam Pipe - 91 BPM.wav"
+    },
     "breaks/090-099/91_the_meters-here_comes_the_meter_man.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/the_meters-here_comes_the_meter_man.wav"
@@ -3945,10 +3877,6 @@
     "breaks/090-099/91_wu_tang-triumph_drum_loop.wav": {
       "pack": "vox",
       "original_path": "vox/Wu Tang - Triumph (Drum Loop) 91 BPM.wav"
-    },
-    "breaks/090-099/92-window_bars-96_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/92 - Window Bars - 96 BPM.wav"
     },
     "breaks/090-099/92_5stairsteps-dont_change_your_love.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -3994,6 +3922,10 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/eddie_bo-lover_and_a_friend.wav"
     },
+    "breaks/090-099/92_fur_collar.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/46 - Fur Collar - 92 BPM.wav"
+    },
     "breaks/090-099/92_harlem_underground_band_feat._willis_jackson-aint_no_sunshine_part2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/harlem_underground_band_feat._willis_jackson-aint_no_sunshine_part2.wav"
@@ -4018,6 +3950,10 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/lou_donaldson-ode_to_billy_joe.wav"
     },
+    "breaks/090-099/92_machine_room.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/03 - Machine Room - 92 BPM.wav"
+    },
     "breaks/090-099/92_melvin_jackson-1969_funky_skull.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/melvin_jackson-1969_funky_skull.wav"
@@ -4038,9 +3974,9 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/three_dog_night-i_can_hear_you_calling.wav"
     },
-    "breaks/090-099/93-kitchen_table-98_bpm.wav": {
+    "breaks/090-099/92_velvet_rope.wav": {
       "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/93 - Kitchen Table - 98 BPM.wav"
+      "original_path": "boom-bap-drum-loops/80 - Velvet Rope - 92 BPM.wav"
     },
     "breaks/090-099/93_bernard_purdie-them_changes_part2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -4053,6 +3989,10 @@
     "breaks/090-099/93_break_2__zero-g-d3.wav": {
       "pack": "zero-g-sample-pack",
       "original_path": "zero-g-sample-pack/zero_g-disc_3/breaks/break_2.wav"
+    },
+    "breaks/090-099/93_bricklayer.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/67 - Bricklayer - 93 BPM.wav"
     },
     "breaks/090-099/93_dark_jazzor-bel_air_project_dark_jazz_ep_pt._1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -4070,9 +4010,17 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/fred_wesley-four_play.wav"
     },
+    "breaks/090-099/93_hard_hat.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/59 - Hard Hat - 93 BPM.wav"
+    },
     "breaks/090-099/93_idris_muhammad-express_yourself_montage.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/idris_muhammad-express_yourself_montage.wav"
+    },
+    "breaks/090-099/93_ivory_keys.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/72 - Ivory Keys - 93 BPM.wav"
     },
     "breaks/090-099/93_jeremy_steig-alias.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -4081,6 +4029,10 @@
     "breaks/090-099/93_kid_dynamite-uphill_peace_of_mind_part2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/kid_dynamite-uphill_peace_of_mind_part2.wav"
+    },
+    "breaks/090-099/93_last_call.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/96 - Last Call - 93 BPM.wav"
     },
     "breaks/090-099/93_luis_enriquez_bacalov-carrefour.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -4094,6 +4046,10 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/madjafala-africa.wav"
     },
+    "breaks/090-099/93_silk_gloves.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/22 - Silk Gloves - 93 BPM.wav"
+    },
     "breaks/090-099/93_skull_snaps-its_a_new_day_ver.1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/skull_snaps-its_a_new_day_ver.1.wav"
@@ -4101,6 +4057,10 @@
     "breaks/090-099/93_slum_village-the_look_of_love_pt_1_drum_loop.wav": {
       "pack": "vox",
       "original_path": "vox/Slum Village - The Look of Love Pt. 1 (Drum Loop) 93 BPM.wav"
+    },
+    "breaks/090-099/93_snow_tires.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/83 - Snow Tires - 93 BPM.wav"
     },
     "breaks/090-099/93_syl_johnson-right_on.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -4121,10 +4081,6 @@
     "breaks/090-099/93_tony_newman-soulthing.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/tony_newman-soulthing.wav"
-    },
-    "breaks/090-099/94-tar_paper-97_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/94 - Tar Paper - 97 BPM.wav"
     },
     "breaks/090-099/94_a_tribe_called_quest-midnight_drum_loop.wav": {
       "pack": "vox",
@@ -4158,6 +4114,10 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/coke-na_na.wav"
     },
+    "breaks/090-099/94_cracked_lens.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/56 - Cracked Lens - 94 BPM.wav"
+    },
     "breaks/090-099/94_dr_dre-still_d_r_e_drum_loop.wav": {
       "pack": "vox",
       "original_path": "vox/Dr. Dre - Still D.R.E. (Drum Loop) 94 BPM.wav"
@@ -4165,6 +4125,10 @@
     "breaks/090-099/94_fat_larrys_band-down_on_the_avenue_part2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/fat_larrys_band-down_on_the_avenue_part2.wav"
+    },
+    "breaks/090-099/94_ice_pick.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/09 - Ice Pick - 94 BPM.wav"
     },
     "breaks/090-099/94_kid_dynamite-uphill_peace_of_mind_part1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -4193,6 +4157,10 @@
     "breaks/090-099/94_nas-if_i_ruled_the_world_drum_loop.wav": {
       "pack": "vox",
       "original_path": "vox/Nas - If I ruled the World (Drum Loop) 94 BPM.wav"
+    },
+    "breaks/090-099/94_overcoat.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/86 - Overcoat - 94 BPM.wav"
     },
     "breaks/090-099/94_rance_allen_group-hot_line_to_jesus.wav": {
       "pack": "samples-extra",
@@ -4226,6 +4194,10 @@
       "pack": "vox",
       "original_path": "vox/The Pharcyde - Runnin' (Drum Loop) 94 BPM.wav"
     },
+    "breaks/090-099/94_tin_roof.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/47 - Tin Roof - 94 BPM.wav"
+    },
     "breaks/090-099/94_wilbur_bascomb_and_zodiact-just_a_groove_in_g.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/wilbur_bascomb_and_zodiact-just_a_groove_in_g.wav"
@@ -4234,10 +4206,6 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/2/wilton_felder-the_cycles_of_time.wav"
     },
-    "breaks/090-099/95-crown_molding-86_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/95 - Crown Molding - 86 BPM.wav"
-    },
     "breaks/090-099/95_a_tribe_called_quest-steve_biko_drum_loop.wav": {
       "pack": "vox",
       "original_path": "vox/A Tribe Called Quest  - Steve Biko (Drum Loop) 95 BPM.wav"
@@ -4245,6 +4213,10 @@
     "breaks/090-099/95_a_tribe_called_quest-the_hop_drum_loop.wav": {
       "pack": "vox",
       "original_path": "vox/A Tribe Called Quest - The Hop (Drum Loop) 95 BPM.wav"
+    },
+    "breaks/090-099/95_back_alley.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/27 - Back Alley - 95 BPM.wav"
     },
     "breaks/090-099/95_break_18.wav": {
       "pack": "zero-g-sample-pack",
@@ -4270,6 +4242,10 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/fausto_papetti-loves_theme.wav"
     },
+    "breaks/090-099/95_grand_jury.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/99 - Grand Jury - 95 BPM.wav"
+    },
     "breaks/090-099/95_honeydrippers-impeach_the_president_ver.1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/honeydrippers-impeach_the_president_ver.1.wav"
@@ -4282,9 +4258,17 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/honeydrippers-impeach_the_president_ver.3.wav"
     },
+    "breaks/090-099/95_late_fee.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/65 - Late Fee - 95 BPM.wav"
+    },
     "breaks/090-099/95_outkast-ms_jackson_drum_loop.wav": {
       "pack": "vox",
       "original_path": "vox/Outkast - Ms. Jackson (Drum Loop) 95 BPM.wav"
+    },
+    "breaks/090-099/95_pawn_shop.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/23 - Pawn Shop - 95 BPM.wav"
     },
     "breaks/090-099/95_skull_snaps-its_a_new_day_ver.2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -4326,10 +4310,6 @@
       "pack": "vox",
       "original_path": "vox/Tupac - Hit em up (Drum Loop) 95 BPM.wav"
     },
-    "breaks/090-099/96-last_call-93_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/96 - Last Call - 93 BPM.wav"
-    },
     "breaks/090-099/96_andre_ceccarelli-gang_progress_part1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/andre_ceccarelli-gang_progress_part1.wav"
@@ -4361,6 +4341,10 @@
     "breaks/090-099/96_fatback_band_feat._johnny_king-keep_on_brother_keep_on.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/fatback_band_feat._johnny_king-keep_on_brother_keep_on.wav"
+    },
+    "breaks/090-099/96_final_hour.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/25 - Final Hour - 96 BPM.wav"
     },
     "breaks/090-099/96_harmony_cats-cats_theme_kon_drum_edit.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -4402,6 +4386,10 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/thunder_and_lightning-bumpin_bus_stop_pt._1_edit.wav"
     },
+    "breaks/090-099/96_tobacco_leaf.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/98 - Tobacco Leaf - 96 BPM.wav"
+    },
     "breaks/090-099/96_tony_newman-soul_thing_2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/tony_newman-soul_thing_2.wav"
@@ -4410,13 +4398,13 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/2/wilson_pickett-get_me_back_on_time.wav"
     },
+    "breaks/090-099/96_window_bars.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/92 - Window Bars - 96 BPM.wav"
+    },
     "breaks/090-099/96_world_wonders-funky_washing_machine_montage.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/2/world_wonders-funky_washing_machine_montage.wav"
-    },
-    "breaks/090-099/97-smelting_pot-79_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/97 - Smelting Pot - 79 BPM.wav"
     },
     "breaks/090-099/97_afrique-house_of_rising_funk_part1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -4434,6 +4422,10 @@
       "pack": "zero-g-sample-pack",
       "original_path": "zero-g-sample-pack/zero_g-disc_2/breaks/break_2.wav"
     },
+    "breaks/090-099/97_chain_link.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/77 - Chain Link - 97 BPM.wav"
+    },
     "breaks/090-099/97_cold_blood-kissing_my_love.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/cold_blood-kissing_my_love.wav"
@@ -4441,6 +4433,10 @@
     "breaks/090-099/97_edwin_starr-who_cares_if_youre_happy_or_not_i_do.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/edwin_starr-who_cares_if_youre_happy_or_not_i_do.wav"
+    },
+    "breaks/090-099/97_fire_escape.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/79 - Fire Escape - 97 BPM.wav"
     },
     "breaks/090-099/97_jimi_hendrix-little_miss_lover_vinyl.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -4458,6 +4454,10 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/sly_and_the_family_stone-advice_part1.wav"
     },
+    "breaks/090-099/97_tar_paper.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/94 - Tar Paper - 97 BPM.wav"
+    },
     "breaks/090-099/97_the_rustix-i_guess_this_is_goodbye_ver.2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/the_rustix-i_guess_this_is_goodbye_ver.2.wav"
@@ -4470,10 +4470,6 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/2/world_wonders-funky_washing_machine.wav"
     },
-    "breaks/090-099/98-tobacco_leaf-96_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/98 - Tobacco Leaf - 96 BPM.wav"
-    },
     "breaks/090-099/98_afrique-house_of_rising_funk_part2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/afrique-house_of_rising_funk_part2.wav"
@@ -4485,6 +4481,10 @@
     "breaks/090-099/98_bacao_rhythm_and_steel_band-dog_was_a_doughnut.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/bacao_rhythm_and_steel_band-dog_was_a_doughnut.wav"
+    },
+    "breaks/090-099/98_bent_fork.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/44 - Bent Fork - 98 BPM.wav"
     },
     "breaks/090-099/98_bernard_purdie-bernards_backbeat_part1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -4525,6 +4525,10 @@
     "breaks/090-099/98_jimi_hendrix-little_miss_lover_cdl.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/jimi_hendrix-little_miss_lover_cdl.wav"
+    },
+    "breaks/090-099/98_kitchen_table.wav": {
+      "pack": "boom-bap-drum-loops",
+      "original_path": "boom-bap-drum-loops/93 - Kitchen Table - 98 BPM.wav"
     },
     "breaks/090-099/98_kool_and_the_gang-give_it_up_part_1.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -4569,10 +4573,6 @@
     "breaks/090-099/98_tony_avlon-sexy_coffee_pot_part2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/tony_avlon-sexy_coffee_pot_part2.wav"
-    },
-    "breaks/090-099/99-grand_jury-95_bpm.wav": {
-      "pack": "boom-bap-drum-loops",
-      "original_path": "boom-bap-drum-loops/99 - Grand Jury - 95 BPM.wav"
     },
     "breaks/090-099/99_andre_ceccarelli-gang_progress_ver2.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -5441,10 +5441,6 @@
     "breaks/100-109/109_wilbur_bascomb_and_the_zodiac-just_a_groove_in_g.wav": {
       "pack": "samples-extra",
       "original_path": "samples-extra/break/wilbur_bascomb_and_the_zodiac-just_a_groove_in_g_2019-03-04_124553.wav"
-    },
-    "breaks/100-109/77_bill_withers-use_me_101_loopfix.wav": {
-      "pack": "samples-extra",
-      "original_path": "samples-extra/break/bill_withers-use_me_101_loopfix_2019-03-04_124553.wav"
     },
     "breaks/110-119/110_bah_samba-let_the_drums_speak.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
@@ -6802,6 +6798,10 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/mr._percolator-got_a_thing_for_you_baby.wav"
     },
+    "breaks/130-139/132_ojahs-roadside_75.wav": {
+      "pack": "rhythm-lab-breakbeats-collection",
+      "original_path": "rhythm-lab-breakbeats-collection/wav/ojahs-roadside_75.wav"
+    },
     "breaks/130-139/132_the_blenders-nothin_but_a_party_part_ii.wav": {
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/the_blenders-nothin_but_a_party_part_ii.wav"
@@ -6986,7 +6986,7 @@
       "pack": "rhythm-lab-breakbeats-collection",
       "original_path": "rhythm-lab-breakbeats-collection/wav/the_chi-lites-are_you_my_woman_tell_me_so_part2.wav"
     },
-    "breaks/140-149/09_foley_drum_loop_140bpm.wav": {
+    "breaks/140-149/140_foley_drum_loop.wav": {
       "pack": "pml-chill-grooves",
       "original_path": "pml-chill-grooves/09_Foley_Drum_Loop_140bpm.wav"
     },
@@ -7146,11 +7146,11 @@
       "pack": "antidote-dubstep",
       "original_path": "antidote-dubstep/150_apollo_hat_loop_2.wav"
     },
-    "breaks/150-159/150bpm_drum_loops_03.wav": {
+    "breaks/150-159/150_drum_loops_03.wav": {
       "pack": "antidote-dubstep",
       "original_path": "antidote-dubstep/150bpm_drum_loops_03.wav"
     },
-    "breaks/150-159/150bpm_drum_loops_17.wav": {
+    "breaks/150-159/150_drum_loops_17.wav": {
       "pack": "antidote-dubstep",
       "original_path": "antidote-dubstep/150bpm_drum_loops_17.wav"
     },
@@ -26929,6 +26929,14 @@
     "toms/unique_tom_4.wav": {
       "pack": "antidote-dubstep",
       "original_path": "antidote-dubstep/unique_tom_4.wav"
+    },
+    "toques_de_berimbau-mestre_paulinho_carioca.wav": {
+      "pack": "vox",
+      "original_path": "vox/percussion/toques_de_berimbau-mestre_paulinho_carioca.wav"
+    },
+    "v_shivapriya_and_br_somashekar_jois_konnakol_duet_madrasana_unplugged.wav": {
+      "pack": "vox",
+      "original_path": "vox/percussion/v_shivapriya_and_br_somashekar_jois_konnakol_duet_madrasana_unplugged.wav"
     },
     "vox/07_ambience_vocal_140bpm_amin.wav": {
       "pack": "pml-chill-grooves",
