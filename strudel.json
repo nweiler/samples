@@ -1,0 +1,12 @@
+{
+  "_base": "https://cdn.example.com/my-library/",
+  "breaks": [
+    "breaks/172_kron_drumloop2.wav"
+  ],
+  "fx": [
+    "fx/lc_ftr_120_fx_misc.wav"
+  ],
+  "impact": [
+    "impact/lc_ftr_100_fx_impact_01.wav"
+  ]
+}
