@@ -1,12 +1,35 @@
 {
-  "_base": "https://cdn.example.com/my-library/",
+  "bd": [
+    "/bd/central_processing_unit-electro_samples_vol._2-02_78-k.wav",
+    "/bd/clean-kick-15.wav",
+    "/bd/clean-kick-4.wav"
+  ],
   "breaks": [
-    "breaks/172_kron_drumloop2.wav"
+    "/breaks/172_kron_drumloop_2.wav",
+    "/breaks/94_melvin_bliss-synthetic_substitution.wav"
+  ],
+  "cp": [
+    "/cp/clap-flam.wav",
+    "/cp/clap_1.wav"
+  ],
+  "cym": [
+    "/cym/cymbal_1.wav"
   ],
   "fx": [
-    "fx/lc_ftr_120_fx_misc.wav"
+    "/fx/lc_ftr_120_fx_misc.wav"
+  ],
+  "hh": [
+    "/hh/central_processing_unit-electro_samples_vol._2-09_78-chh.wav",
+    "/hh/hihat_closed_6.wav"
   ],
   "impact": [
-    "impact/lc_ftr_100_fx_impact_01.wav"
+    "/impact/lc_ftr_100_fx_impact_01.wav"
+  ],
+  "pads": [
+    "/pads/lc_ftr_120_fx_misc.wav"
+  ],
+  "sd": [
+    "/sd/closed_hihat_4.wav",
+    "/sd/dubstep_snare_1-c_sharp.wav"
   ]
 }
