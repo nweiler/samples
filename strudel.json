@@ -741,5 +741,11 @@
     "/up/white_noise_up_5-150_bpm.wav",
     "/up/white_noise_up_6-150_bpm.wav",
     "/up/white_noise_up_7-160_bpm.wav"
+  ],
+  "vox": [
+    "/vox/gui1.wav",
+    "/vox/gui2.wav",
+    "/vox/gui3.wav",
+    "/vox/guir.wav"
   ]
 }
